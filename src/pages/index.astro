@@ -1,13 +1,18 @@
 ---
+import AD from "../components/ad.astro";
+import Header from "../layouts/header.astro";
+import HeaderDropDown from "../components/headerDropDown.astro";
 import LayoutPrincipal from "../layouts/principalLayout.astro";
 import FrontPage from "../layouts/sectionFrontPage.astro";
 import CV from "../layouts/sectionCV.astro";
 import News from "../layouts/sectionNews.astro";
-import AD from "../components/ad.astro";
 ---
 
 <LayoutPrincipal title="principalLayout">
-  <h1>port</h1>
+  <Header></Header>
+  <FrontPage></FrontPage>
+  <CV></CV>
+  <News></News>
 </LayoutPrincipal>
 
 
