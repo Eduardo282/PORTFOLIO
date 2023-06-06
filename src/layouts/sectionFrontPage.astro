@@ -1,0 +1,174 @@
+<section class="front-page">
+  <div class="front-page__name">
+    <span class="front-page__span-name">E d u a r d o</span>
+    <span class="front-page__span-name">F r a n c i s c o</span>
+    <span class="front-page__span-name">G a r c i a</span>
+  </div>
+
+  <div class="front-page__face-user">
+    <img
+      class="front-page__img-user"
+      src="img/webDeveloperPrincipal.png"
+      alt="Photo of principal developer web"
+    />
+  </div>
+
+  <div class="front-page__more-info">
+    <div class="front-page__row-down-info">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="front-page__svg bi bi-caret-down-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+        ></path>
+      </svg>
+    </div>
+    <span class="front-page__span-info">MORE INFO</span>
+  </div>
+</section>
+
+<style>
+  .front-page {
+    max-width: 80%;
+    width: 100%;
+    height: 80vh;
+    margin: 6vh auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid rgb(0, 195, 255);     */
+  }
+
+  .front-page__name {
+    width: 100%;
+    font-size: 10vw;
+    font-weight: 600;
+    /* border: 2px solid pink;  */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: white;
+  }
+
+  .front-page__span-name:nth-child(1),
+  .front-page__span-name:nth-child(2),
+  .front-page__span-name:nth-child(3) {
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 7vh;
+  }
+
+  .front-page__span-name:nth-child(1) {
+    width: 0ch;
+    border-right: 0.25em solid transparent;
+    animation: blink 0.3s ease 3, typing1 0.8s steps(8) forwards;
+  }
+
+  @keyframes blink {
+    50% {
+      border-color: var(--colorFront-pageName);
+    }
+  }
+
+  @keyframes typing1 {
+    from {
+      width: 0ch;
+    }
+
+    to {
+      width: 10ch;
+    }
+  }
+
+  .front-page__span-name:nth-child(2) {
+    width: 0ch;
+    border-right: 0.25em solid transparent;
+    animation: blink 0.35s ease 0.8s 3, typing2 0.9s steps(9) 0.8s forwards;
+  }
+
+  @keyframes typing2 {
+    from {
+      width: 0ch;
+    }
+
+    to {
+      width: 13ch;
+    }
+  }
+
+  .front-page__span-name:nth-child(3) {
+    width: 0ch;
+    border-right: 0.25em solid transparent;
+    animation: blink 0.24s ease 1.7s 3, typing3 0.6s steps(6) 1.7s forwards;
+  }
+
+  @keyframes typing3 {
+    from {
+      width: 0ch;
+    }
+
+    to {
+      width: 9ch;
+    }
+  }
+
+  .front-page__face-user {
+    width: 100%;
+    height: 40vh;
+    /* border: 2px solid green;  */
+    border-radius: 50%;
+    box-shadow: 0.3125em 0.3125em 3.75em var(--colorFront-pageFace);
+    overflow: hidden;
+  }
+
+  .front-page__img-user {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    filter: drop-shadow(0.75em 0.75em 0.5em var(--colorFront-pageFace));
+  }
+
+  .front-page__more-info {
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 2px solid white;  */
+  }
+
+  .front-page__row-down-info {
+    width: 10vw;
+    /* border: 2px solid rgb(255, 192, 241);  */
+    animation: upDown 2s linear infinite alternate;
+  }
+
+  .front-page__svg {
+    width: inherit;
+    height: inherit;
+  }
+
+  @keyframes upDown {
+    from {
+      transform: translateY(-1vh);
+    }
+
+    to {
+      transform: translateY(1vh);
+    }
+  }
+
+  .front-page__span-info {
+    font-size: 6vw;
+    /* border: 2px solid red;  */
+  }
+</style>

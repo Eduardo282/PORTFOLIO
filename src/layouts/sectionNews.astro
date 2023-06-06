@@ -1,0 +1,187 @@
+<section class="section-news">
+  <div class="section-news__language section-news__language--position1">
+    <img class="section-news__img" src="img/php.png" alt="" />
+  </div>
+
+  <div class="section-news__language section-news__language--position2">
+    <img class="section-news__img" src="img/js.png" alt="" />
+  </div>
+
+  <div class="section-news__language section-news__language--position3">
+    <img class="section-news__img" src="img/css.png" alt="" />
+  </div>
+
+  <div class="section-news__language section-news__language--position4">
+    <img class="section-news__img" src="img/html.png" alt="" />
+  </div>
+
+  <div
+    class="section-news__info-language section-news__info-language--position1"
+  >
+    <div
+      class="section-news__info-language-description section-news__info-language-text--rotate1"
+    >
+      <span class="section-news__info-language-title">SQL</span>
+      <p class="section-news__info-language-text">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt culpa
+        alias
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="section-news__info-language section-news__info-language--position2"
+  >
+    <div
+      class="section-news__info-language-description section-news__info-language-text--rotate2"
+    >
+      <span class="section-news__info-language-title">REACT</span>
+      <p class="section-news__info-language-text">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="section-news__info-language section-news__info-language--position3"
+  >
+    <div
+      class="section-news__info-language-description section-news__info-language-text--rotate3"
+    >
+      <span class="section-news__info-language-title">PYTHON</span>
+      <p class="section-news__info-language-text">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus,
+        explicabo fugiat
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-news {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-image: url(../img/backgroundSectionNews.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0% 0%;
+    /* border: 2px solid red;   */
+    overflow: hidden;
+  }
+
+  .section-news * {
+    position: absolute;
+  }
+
+  .section-news__img {
+    height: auto;
+  }
+
+  .section-news__language--position1 {
+    width: 70%;
+    height: 20%;
+    left: 40%;
+    transform: skewY(-20deg);
+  }
+
+  .section-news__language--position2 {
+    width: 15%;
+    height: 7.5%;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    border-radius: 50%;
+    opacity: 0.8;
+    filter: grayscale();
+    animation: float 1s linear infinite alternate;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(-40%);
+    }
+
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  .section-news__language--position3 {
+    width: 30%;
+    height: 15%;
+    top: 55%;
+    left: 5%;
+    opacity: 0.5;
+  }
+
+  .section-news__language--position4 {
+    width: 35%;
+    height: 17.5%;
+    top: 75%;
+    left: 60%;
+    border-radius: 50%;
+    z-index: 3;
+    animation: float2 2.5s linear infinite alternate;
+  }
+
+  @keyframes float2 {
+    0% {
+      rotate: -25deg;
+    }
+
+    100% {
+      rotate: 0deg;
+    }
+  }
+
+  .section-news__info-language {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .section-news__info-language--position1 {
+    width: 40%;
+    height: 40%;
+    top: 5%;
+    left: -1%;
+    background-image: url(../img/infoLanguage1.png);
+  }
+
+  .section-news__info-language--position2 {
+    width: 70%;
+    height: 20%;
+    top: 75%;
+    left: 0;
+    background-image: url(../img/infoLanguage2.png);
+  }
+
+  .section-news__info-language--position3 {
+    width: 70%;
+    height: 40%;
+    top: 30%;
+    left: 45%;
+    z-index: 1;
+    background-image: url(../img/infoLanguage3.png);
+  }
+
+  .section-news__info-language-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    color: #000;
+  }
+
+  .section-news__info-language-description > * {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .section-news__info-language-text {
+    margin: 35px 0 0 0;
+  }
+</style>
