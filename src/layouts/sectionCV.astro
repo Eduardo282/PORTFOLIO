@@ -1,4 +1,3 @@
-
 <section class="section-CV">
   <div class="section-CV__info">
     <div class="section-CV__name">Hi my name is Eduardo Francisco Garcia</div>
@@ -16,7 +15,6 @@
   </div>
 </section>
 
-
 <style>
   .section-CV {
     width: 100%;
@@ -24,12 +22,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../images/backgroundCV.png);
+    background-image: url(https://cdn.sanity.io/images/k5uhpzjy/production/c19e5c6bf9e7e0c498d601c391a8321ab73882f6-980x2129.jpg?auto=format&q=90&url=https://cdn.sanity.io/images/k5uhpzjy/production/c19e5c6bf9e7e0c498d601c391a8321ab73882f6-980x2129.jpg&h=1200);
     background-position: 0% 0%;
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     /* border: 2px solid red; */
-    filter: drop-shadow(0 -0.625em 0.9375em var(--colorFrontPageMoreInfo));
+    --mask: radial-gradient(10.93px at 50% 15.4px, #000 99%, #0000 101%)
+        calc(50% - 14px) 0/28px 51% repeat-x,
+      radial-gradient(10.93px at 50% -8.4px, #0000 99%, #000 101%) 50% 7px/28px
+        calc(51% - 7px) repeat-x,
+      radial-gradient(10.93px at 50% calc(100% - 15.4px), #000 99%, #0000 101%)
+        calc(50% - 14px) 100%/28px 51% repeat-x,
+      radial-gradient(10.93px at 50% calc(100% + 8.4px), #0000 99%, #000 101%)
+        50% calc(100% - 7px) / 28px calc(51% - 7px) repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
   }
 
   .section-CV__info {
@@ -41,7 +48,7 @@
     justify-content: space-between;
     align-items: center;
     /* border: 2px solid green; */
-    color: var(--colorFrontPageFace);
+    color: var(--colorFrontPage);
     overflow: hidden;
   }
 

@@ -1,5 +1,5 @@
 ---
-import php from "../images/php.png";
+import react from "../images/frameworkReact.png";
 import js from "../images/js.png";
 import css from "../images/css.png";
 import html from "../images/html.png";
@@ -7,7 +7,7 @@ import html from "../images/html.png";
 
 <section class="section-news">
   <div class="section-news__language section-news__language--position1">
-    <img class="section-news__img" src=`${php}` alt="PHP" />
+    <img class="section-news__img" src=`${react}` alt="PHP" />
   </div>
 
   <div class="section-news__language section-news__language--position2">
@@ -26,7 +26,7 @@ import html from "../images/html.png";
     class="section-news__info-language section-news__info-language--position1"
   >
     <div
-      class="section-news__info-language-description section-news__info-language-text--rotate1"
+      class="section-news__info-language-description-1 section-news__info-language-text--rotate1"
     >
       <span class="section-news__info-language-title">SQL</span>
       <p class="section-news__info-language-text">
@@ -40,7 +40,7 @@ import html from "../images/html.png";
     class="section-news__info-language section-news__info-language--position2"
   >
     <div
-      class="section-news__info-language-description section-news__info-language-text--rotate2"
+      class="section-news__info-language-description-2 section-news__info-language-text--rotate2"
     >
       <span class="section-news__info-language-title">REACT</span>
       <p class="section-news__info-language-text">
@@ -53,7 +53,7 @@ import html from "../images/html.png";
     class="section-news__info-language section-news__info-language--position3"
   >
     <div
-      class="section-news__info-language-description section-news__info-language-text--rotate3"
+      class="section-news__info-language-description-3 section-news__info-language-text--rotate3"
     >
       <span class="section-news__info-language-title">PYTHON</span>
       <p class="section-news__info-language-text">
@@ -69,9 +69,9 @@ import html from "../images/html.png";
     width: 100%;
     height: 100vh;
     position: relative;
-    background-image: url(../images/backgroundSectionNews.jpg);
+    background-image: linear-gradient(180deg,#ff6444 40%,#f8ece2);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;    ;
     background-position: 0% 0%;
     /* border: 2px solid red;   */
     overflow: hidden;
@@ -98,9 +98,8 @@ import html from "../images/html.png";
     top: 50%;
     left: 50%;
     z-index: 2;
-    border-radius: 50%;
     opacity: 0.8;
-    filter: grayscale();
+    filter: grayscale() opacity(0.4);
     animation: float 1s linear infinite alternate;
   }
 
@@ -123,13 +122,15 @@ import html from "../images/html.png";
   }
 
   .section-news__language--position4 {
-    width: 35%;
+    width: 25%;
     height: 17.5%;
     top: 75%;
     left: 60%;
     border-radius: 50%;
     z-index: 3;
     animation: float2 2.5s linear infinite alternate;
+    mix-blend-mode: hard-light;
+    filter: opacity(0.1) contrast(200%);
   }
 
   @keyframes float2 {
@@ -154,7 +155,12 @@ import html from "../images/html.png";
     height: 40%;
     top: 5%;
     left: -1%;
-    background-image: url(../images/infoLanguage1.png);
+    background-image: url(../images/Thought.png);
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    background-size: 210px 280px;
+    rotate: -10deg;
+    filter: drop-shadow(0 0 20px #ffffff) brightness(10);
   }
 
   .section-news__info-language--position2 {
@@ -162,7 +168,12 @@ import html from "../images/html.png";
     height: 20%;
     top: 75%;
     left: 0;
-    background-image: url(../images/infoLanguage2.png);
+    background-image: url(../images/frame.png);
+    background-position: 30%;
+    background-repeat: no-repeat;
+    background-size: 260px 130px;
+    rotate: -10deg;
+    filter: drop-shadow(0 0 7px #ffffff) brightness(10);
   }
 
   .section-news__info-language--position3 {
@@ -171,24 +182,54 @@ import html from "../images/html.png";
     top: 30%;
     left: 45%;
     z-index: 1;
-    background-image: url(../images/infoLanguage3.png);
+    background-image: url(../images/shapeWavy.png);
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    background-size: 350px 200px;
+    rotate: 17deg;
+    mix-blend-mode: multiply;
+    filter: drop-shadow(0 0 20px #000000) contrast(200%);
   }
 
-  .section-news__info-language-description {
+  .section-news__info-language-description-1,
+  .section-news__info-language-description-2,
+  .section-news__info-language-description-3 {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 80%;
     height: 80%;
-    color: #000;
+  }
+  .section-news__info-language-description-1 {
+    margin: -30px 0 0 0;
+    width: 70%;
+    height: 55%;
+  }
+  .section-news__info-language-description-2 {
+    width: 60%;
+    height: 80%;
+  }
+  .section-news__info-language-description-3 {
+    color: #000000;
+    margin: -60px 25px 0 0;
+    width: 60%;
+    height: 50%;
   }
 
-  .section-news__info-language-description > * {
+  .section-news__info-language-description-1,
+  .section-news__info-language-description-2,
+  .section-news__info-language-description-3 > * {
     font-weight: bold;
     text-align: center;
   }
 
   .section-news__info-language-text {
-    margin: 35px 0 0 0;
+    margin: 45px 0 0 0;
+    font-size: 3.5vw;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
   }
 </style>
