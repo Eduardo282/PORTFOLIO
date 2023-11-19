@@ -1,0 +1,178 @@
+---
+import css from "../images/css.png";
+---
+
+<section class="gridProjects">
+  <p class="gridProjects__itemDescription">
+    <span>All Projects</span>
+    <br />
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime explicabo quisquam
+    neque est! Vel nemo consequatur facere unde aliquam quia architecto, voluptatum
+    aliquid ab rerum. Quisquam, voluptatum. Quisquam,
+  </p>
+  <div class="gridProjects__itemProject gridProjects__itemProject--project1">
+    <div class="gridProjects__titleProject">
+      <span>Replica Facebook</span>
+      <span>1 day</span>
+    </div>
+    <div class="gridProjects__imgProject">
+      <img class="gridProjects__img" src=`${css}` alt="Facebook Replica" />
+    </div>
+  </div>
+  <div class="gridProjects__itemProject gridProjects__itemProject--project2">
+    <div class="gridProjects__titleProject">
+      <span>Replica Facebook</span>
+      <span>1 day</span>
+    </div>
+    <div class="gridProjects__imgProject">
+      <img class="gridProjects__img" src=`${css}` alt="Facebook Replica" />
+    </div>
+  </div>
+  <div class="gridProjects__itemProject gridProjects__itemProject--project3">
+    <div class="gridProjects__titleProject">
+      <span>Replica Facebook</span>
+      <span>1 day</span>
+    </div>
+    <div class="gridProjects__imgProject">
+      <img class="gridProjects__img" src=`${css}` alt="Facebook Replica" />
+    </div>
+  </div>
+  <div class="gridProjects__itemProject gridProjects__itemProject--project4">
+    <div class="gridProjects__titleProject">
+      <span>Replica Facebook</span>
+      <span>1 day</span>
+    </div>
+    <div class="gridProjects__imgProject">
+      <img class="gridProjects__img" src=`${css}` alt="Facebook Replica" />
+    </div>
+  </div>
+  <div class="gridProjects__itemProject gridProjects__itemProject--project5">
+    <div class="gridProjects__titleProject">
+      <span>Replica Facebook</span>
+      <span>1 day</span>
+    </div>
+    <div class="gridProjects__imgProject">
+      <img class="gridProjects__img" src=`${css}` alt="Facebook Replica" />
+    </div>
+  </div>
+  <div class="gridProjects__itemProject gridProjects__itemProject--project6">
+    <div class="gridProjects__titleProject">
+      <span>Replica Facebook</span>
+      <span>1 day</span>
+    </div>
+    <div class="gridProjects__imgProject">
+      <img class="gridProjects__img" src=`${css}` alt="Facebook Replica" />
+    </div>
+  </div>
+  <div class="gridProjects__itemProject gridProjects__itemProject--project7">
+    <div class="gridProjects__titleProject">
+      <span>Replica Facebook</span>
+      <span>1 day</span>
+    </div>
+    <div class="gridProjects__imgProject">
+      <img class="gridProjects__img" src=`${css}` alt="Facebook Replica" />
+    </div>
+  </div>
+  <div class="gridProjects__itemProject gridProjects__itemProject--project8">
+    <div class="gridProjects__titleProject">
+      <span>Replica Facebook</span>
+      <span>1 day</span>
+    </div>
+    <div class="gridProjects__imgProject">
+      <img class="gridProjects__img" src=`${css}` alt="Facebook Replica" />
+    </div>
+  </div>
+  <div class="gridProjects__itemProject gridProjects__itemProject--project9">
+    <div class="gridProjects__titleProject">
+      <span>Replica Facebook</span>
+      <span>1 day</span>
+    </div>
+    <div class="gridProjects__imgProject">
+      <img class="gridProjects__img" src=`${css}` alt="Facebook Replica" />
+    </div>
+  </div>
+  <div class="gridProjects__itemProject gridProjects__itemProject--project10">
+    <div class="gridProjects__titleProject">
+      <span>Replica Facebook</span>
+      <span>1 day</span>
+    </div>
+    <div class="gridProjects__imgProject">
+      <img class="gridProjects__img" src=`${css}` alt="Facebook Replica" />
+    </div>
+  </div>
+  <div class="gridProjects__itemProject gridProjects__itemProject--project11">
+    <div class="gridProjects__titleProject">
+      <span>Replica Facebook</span>
+      <span>1 day</span>
+    </div>
+    <div class="gridProjects__imgProject">
+      <img class="gridProjects__img" src=`${css}` alt="Facebook Replica" />
+    </div>
+  </div>
+  <div class="gridProjects__itemProject gridProjects__itemProject--project12">
+    <div class="gridProjects__titleProject">
+      <span>Replica Facebook</span>
+      <span>1 day</span>
+    </div>
+    <div class="gridProjects__imgProject">
+      <img class="gridProjects__img" src=`${css}` alt="Facebook Replica" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .gridProjects {
+    margin: -50px 0 0 0;
+    padding: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(13, auto);
+    gap: 0.625em;
+    background-image: url(https://www.clams.lol/images/bg-cork.jpg);
+    --mask: radial-gradient(
+          34.99px at 50% calc(100% - 48px),
+          #000 99%,
+          #0000 101%
+        )
+        calc(50% - 60px) 0/120px 100%,
+      radial-gradient(34.99px at 50% calc(100% + 18px), #0000 99%, #000 101%)
+        50% calc(100% - 30px) / 120px 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+  }
+
+  .gridProjects__itemDescription span {
+    /* border: 1px solid red; */
+    font-weight: bold;
+    font-size: 10vw;
+  }
+
+  .gridProjects__itemDescription {
+    padding: 5%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3.5vw;
+    grid-column: 1 / 3;
+    /* border: 1px solid red; */
+  }
+
+  .gridProjects__itemProject {
+    display: flex;
+    flex-direction: column;
+    padding: 8%;
+    font-size: 3.7vw;
+    font-weight: bold;
+    text-align: center;
+    -webkit-text-stroke: 0.06em;
+    border-radius: 0.625em;
+    background: #f8ece2;
+  }
+
+  .gridProjects__itemProject--project5 {
+    grid-area: 4 / 1 / 6 / 3;
+  }
+  .gridProjects__titleProject {
+    text-transform: uppercase;
+  }
+</style>

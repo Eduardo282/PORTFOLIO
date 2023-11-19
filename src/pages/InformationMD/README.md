@@ -1,4 +1,4 @@
-# Encabezados h1
+# Encabezado h1
 
 ## Encabezado h2
 
@@ -55,7 +55,7 @@
 5. Lista 2
 6. Lista 3
 
-## Listas desordenadas (Solo tiene que empezar con 1 o por el numero que tu quieras empezar)
+## Listas desordenadas (Solo tiene que empezar con - o por *, el que tu quieras empezar)
 
 - Lista 1
 - Lista 2
@@ -178,7 +178,7 @@ console.log("Hola Mundo");
 | Astrid | 23   | Otro   |
 
 
-## Anclas a un lugar del documento (Solo Encabezdos funciona)
+## Anclas a un lugar del documento (Solo con Encabezados funciona)
 
 [Encabezado h5](#encabezado-h5)
 

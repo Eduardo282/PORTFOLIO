@@ -38,26 +38,36 @@ import webDeveloperPrincipal from '../images/webDeveloperPrincipal.png'
 
 <style>
   .front-page {
-    max-width: 80%;
+    position: relative;
+    margin-top: -3.25em;
     width: 100%;
-    height: 80vh;
-    margin: 6vh auto;
+    height: 125vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    /* border: 2px solid rgb(0, 195, 255);     */
+    /* border: 1px solid rgb(89, 0, 255); */
+    border-radius: 1.5625em 1.5625em 0 0;
+    background-image: url(https://cdn.sanity.io/images/k5uhpzjy/production/adf3d687c8f068816481acba00d9942d01374aa8-3000x2100.jpg?auto=format&q=75&url=https://cdn.sanity.io/images/k5uhpzjy/production/adf3d687c8f068816481acba00d9942d01374aa8-3000x2100.jpg&w=2000);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    --mask:
+    radial-gradient(53.64px at 50% calc(100% - 73.60px),#000 99%,#0000 101%) calc(50% - 92px) 0/184px 100%,
+    radial-gradient(53.64px at 50% calc(100% + 27.60px),#0000 99%,#000 101%) 50% calc(100% - 46px)/184px 100% repeat-x;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+    z-index: 98;
   }
 
   .front-page__name {
-    width: 100%;
+    margin-top: 2em;
+    width: 80%;
     font-size: 10vw;
-    font-weight: 600;
-    /* border: 2px solid pink;  */
+    /* border: 1px solid rgb(255, 0, 43); */
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-stroke: 2px;
-    -webkit-text-stroke-color: white;
   }
 
   .front-page__span-name:nth-child(1),
@@ -72,21 +82,17 @@ import webDeveloperPrincipal from '../images/webDeveloperPrincipal.png'
 
   .front-page__span-name:nth-child(1) {
     width: 0ch;
-    border-right: 0.25em solid transparent;
+    border-right: 0.05em solid transparent;
     animation: blink 0.3s ease 3, typing1 0.8s steps(8) forwards;
   }
 
   @keyframes blink {
     50% {
-      border-color: var(--colorFrontPageName);
+      border-color: var(--color-black);
     }
   }
 
   @keyframes typing1 {
-    from {
-      width: 0ch;
-    }
-
     to {
       width: 10ch;
     }
@@ -94,15 +100,11 @@ import webDeveloperPrincipal from '../images/webDeveloperPrincipal.png'
 
   .front-page__span-name:nth-child(2) {
     width: 0ch;
-    border-right: 0.25em solid transparent;
+    border-right: 0.05em solid transparent;
     animation: blink 0.35s ease 0.8s 3, typing2 0.9s steps(9) 0.8s forwards;
   }
 
   @keyframes typing2 {
-    from {
-      width: 0ch;
-    }
-
     to {
       width: 13ch;
     }
@@ -110,69 +112,62 @@ import webDeveloperPrincipal from '../images/webDeveloperPrincipal.png'
 
   .front-page__span-name:nth-child(3) {
     width: 0ch;
-    border-right: 0.25em solid transparent;
+    border-right: 0.05em solid transparent;
     animation: blink 0.24s ease 1.7s 3, typing3 0.6s steps(6) 1.7s forwards;
   }
 
   @keyframes typing3 {
-    from {
-      width: 0ch;
-    }
-
     to {
       width: 9ch;
     }
   }
 
   .front-page__face-user {
-    width: 100%;
-    height: 40vh;
-    /* border: 2px solid green;  */
+    margin-top: 1.5625em;
+    width: 80%;
+    /* border: 1px solid green; */
     border-radius: 50%;
-    box-shadow: 0.3125em 0.3125em 3.75em var(--colorFrontPageFace);
+    box-shadow: 0.35em 0.35em 1em 0.1em #00002060;
     overflow: hidden;
   }
 
   .front-page__img-user {
-    width: inherit;
-    height: inherit;
-    object-fit: cover;
-    filter: drop-shadow(0.75em 0.75em 0.5em var(--colorFrontPageFace));
+    filter: drop-shadow(0.35em 0.35em 1em #00002070);
   }
 
   .front-page__more-info {
-    width: 100%;
-    height: 12vh;
+    margin-top: 1.5625em;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    /* border: 2px solid white;  */
+    justify-content: center;
+    /* border: 1px solid white;  */
+    overflow: hidden;
   }
 
   .front-page__row-down-info {
-    width: 10vw;
-    /* border: 2px solid rgb(255, 192, 241);  */
-    animation: upDown 2s linear infinite alternate;
+    width: 2.1875em;
+    /* border: 1px solid rgb(255, 192, 241); */
+    animation: upDown 1.5s linear infinite alternate;
   }
 
   .front-page__svg {
-    width: inherit;
     height: inherit;
   }
 
   @keyframes upDown {
     from {
-      transform: translateY(-1vh);
+      transform: translateY(-0.625em);
     }
 
     to {
-      transform: translateY(1vh);
+      transform: translateY(0.0625em);
     }
   }
 
   .front-page__span-info {
-    font-size: 6vw;
+    font-size: 5vw;
     /* border: 2px solid red;  */
   }
 </style>

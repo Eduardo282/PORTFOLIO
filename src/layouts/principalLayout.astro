@@ -13,8 +13,6 @@ const { title = "No hay titulo" } = Astro.props;
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
@@ -35,33 +33,34 @@ const { title = "No hay titulo" } = Astro.props;
 <style is:global>
   /* Aquí definimos las Custom properties */
   :root {
-    --colorFrontPage: #fff;
-    --colorFrontPageName: #000;
-    --colorFrontPageFace: #000;
-    --colorFrontPageMoreInfo: #fff;
+    --color-white: #fff3f3;
+    --color-black: #0b0b0b;
 
-    /* --negro: #393939; */
-    --color-primario: #181818;
-    --color-secundario: #f0f0f0;
+    --color-light: #f0f0f0;
+    --color-dark: #181818;
 
     /* Tipografía */
-    --tipo-principal: "Special Elite", cursive;
-    /* --tipo-secundario: Verdana; */
-    --tipo-secundario: "Dancing Script", cursive;
+    --font-principal: "Special Elite", cursive;
+    --font-secundario: "Dancing Script", cursive;
+
+    /* Color Tipografía */
+    --color-font-primario: #242222;
+    --color-font-secundario: #f8f1f1;
+  }
+
+  html{
+    color-scheme: dark light;
   }
 
   body {
-    background-image: url(../images/principalBackground.jpg);
-    background-position: 0% 0%;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-color: #FF6444;
+    padding: 0.5em;
 
     /* Configuramos la tipografía para toda la web */
     min-height: 100vh;
-    font-size: 100%;
-    font-family: var(--tipo-principal);
-    color: var(--color-primario);
-    background-color: var(--color-secundario);
+    font-size: 16px;
+    font-family: var(--font-principal);
+    color: var(--color-font-primario);
     /* opcional */
     line-height: 1.4em;
     /* opcional */
@@ -76,6 +75,7 @@ const { title = "No hay titulo" } = Astro.props;
     -moz-osx-font-smoothing: grayscale;
   }
 
+
   /*
   Con este reset vamos a resolver:
     👉 Unificar el uso de Custom Properties
@@ -88,9 +88,8 @@ const { title = "No hay titulo" } = Astro.props;
   /* Las adaptamos al modo oscuro */
   @media (prefers-color-scheme: dark) {
     :root {
-      /* --negro: #ececec; */
-      --color-primario: #f0f0f0;
-      --color-secundario: #181818;
+      --color-light: #181818;
+      --color-dark: #f0f0f0;
     }
   }
 
@@ -98,8 +97,11 @@ const { title = "No hay titulo" } = Astro.props;
   /* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
   @media (prefers-contrast: high) {
     :root {
-      --color-primario: black;
-      --color-secundario: white;
+    --color-white: #fff;
+    --color-black: #000;
+
+    --color-font-primario: #000000;
+    --color-font-secundario: #ffffff;
     }
   }
 
@@ -135,6 +137,7 @@ const { title = "No hay titulo" } = Astro.props;
     max-width: 100%;
     width: 100%;
     display: block;
+    height: auto;
     /* opcional */
     -o-object-fit: cover;
     object-fit: cover;
@@ -166,7 +169,7 @@ const { title = "No hay titulo" } = Astro.props;
     scroll-behavior: smooth;
   }
 
-  /* Desactivamos estilos por defecto de las principales etiquetas de texto */
+  /* Desactivamos estilos por defecto de las font-principales etiquetas de texto */
   h1,
   h2,
   h3,
@@ -200,13 +203,13 @@ const { title = "No hay titulo" } = Astro.props;
 
   /* Configuramos el texto que seleccionamos */
   ::-moz-selection {
-    background-color: var(--color-primario);
-    color: var(--color-secundario);
+    background-color: var(--color-white);
+    color: var(--color-black);
   }
 
   ::selection {
-    background-color: var(--color-primario);
-    color: var(--color-secundario);
+    background-color: var(--color-white);
+    color: var(--color-black);
   }
 
   /* Nivelamos problemas de tipografías y colocación de formularios */
@@ -233,7 +236,8 @@ const { title = "No hay titulo" } = Astro.props;
   /* Reseteamos las tablas */
   table,
   tr,
-  td {
+  td,
+  th {
     border-collapse: collapse;
     border-spacing: 0;
   }

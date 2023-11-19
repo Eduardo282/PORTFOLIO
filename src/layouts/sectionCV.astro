@@ -22,21 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(https://cdn.sanity.io/images/k5uhpzjy/production/c19e5c6bf9e7e0c498d601c391a8321ab73882f6-980x2129.jpg?auto=format&q=90&url=https://cdn.sanity.io/images/k5uhpzjy/production/c19e5c6bf9e7e0c498d601c391a8321ab73882f6-980x2129.jpg&h=1200);
-    background-position: 0% 0%;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    /* border: 2px solid red; */
-    --mask: radial-gradient(10.93px at 50% 15.4px, #000 99%, #0000 101%)
-        calc(50% - 14px) 0/28px 51% repeat-x,
-      radial-gradient(10.93px at 50% -8.4px, #0000 99%, #000 101%) 50% 7px/28px
-        calc(51% - 7px) repeat-x,
-      radial-gradient(10.93px at 50% calc(100% - 15.4px), #000 99%, #0000 101%)
-        calc(50% - 14px) 100%/28px 51% repeat-x,
-      radial-gradient(10.93px at 50% calc(100% + 8.4px), #0000 99%, #000 101%)
-        50% calc(100% - 7px) / 28px calc(51% - 7px) repeat-x;
-    -webkit-mask: var(--mask);
-    mask: var(--mask);
+    /* border: 1px solid red; */
   }
 
   .section-CV__info {
@@ -44,24 +30,21 @@
     height: 80vh;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    /* border: 2px solid green; */
-    color: var(--colorFrontPage);
-    overflow: hidden;
+    /* border: 1px solid green; */
   }
 
   .section-CV__name {
-    width: 100%;
+    width: 90%;
     font-weight: 700;
     font-size: 6vh;
     text-align: center;
-    font-family: var(--tipo-secundario);
-    /* border: 2px solid gold;  */
+    font-family: var(--font-secundario);
+    /* border: 1px solid gold; */
     transform: skewY(-7deg);
     line-height: 8vh;
-    -webkit-text-stroke: 0.18rem;
+    -webkit-text-stroke: 0.02375em;
   }
 
   .section-CV__description {
@@ -69,8 +52,7 @@
     font-weight: 600;
     font-size: 2vh;
     text-align: center;
-    /* border: 2px solid pink;  */
-    hyphens: none;
+    /* border: 1px solid pink; */
   }
 
   .section-CV__CV {
@@ -81,18 +63,17 @@
     align-items: center;
     justify-content: space-between;
     gap: 0.625em;
-    /* border: 2px solid red; */
+    /* border: 1px solid red; */
   }
 
   .section-CV__button {
     width: 100%;
     font-weight: 700;
     padding: 0.625em;
-    font-size: 5vw;
-    border: 0.12em solid var(--colorFrontPageFace);
+    font-size: 4vw;
     border-radius: 0.9375em;
     background-color: #ffd700;
-    -webkit-text-stroke: 0.05em;
+    -webkit-text-stroke: 0.03em;
   }
 
   .section-CV__span {
