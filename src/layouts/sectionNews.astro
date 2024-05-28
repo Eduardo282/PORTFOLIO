@@ -3,23 +3,25 @@ import react from "../images/frameworkReact.png";
 import js from "../images/js.png";
 import css from "../images/css.png";
 import html from "../images/html.png";
+
+import "../styles/stylesSectionNews.css"
 ---
 
 <section class="section-news">
   <div class="section-news__language section-news__language--position1">
-    <img class="section-news__img" src=`${react}` alt="PHP" />
+    <img class="section-news__img" src={react.src} alt="PHP" />
   </div>
 
   <div class="section-news__language section-news__language--position2">
-    <img class="section-news__img" src=`${js}` alt="JS" />
+    <img class="section-news__img" src={js.src} alt="JS" />
   </div>
 
   <div class="section-news__language section-news__language--position3">
-    <img class="section-news__img" src=`${css}` alt="CSS" />
+    <img class="section-news__img" src={css.src} alt="CSS" />
   </div>
 
   <div class="section-news__language section-news__language--position4">
-    <img class="section-news__img" src=`${html}` alt="HTML" />
+    <img class="section-news__img" src={html.src} alt="HTML" />
   </div>
 
   <div
@@ -64,171 +66,3 @@ import html from "../images/html.png";
   </div>
 </section>
 
-<style>
-  .section-news {
-    width: 100%;
-    height: 125vh;
-    position: relative;
-    background-image: linear-gradient(#ff6444 40%,#f8ece2);
-    /* border: 1px solid rgb(21, 255, 0); */
-    overflow: hidden;
-    --mask: radial-gradient(48px at bottom,#0000 97%,#000) 50% / 88.80px 100%;
-  -webkit-mask: var(--mask);
-          mask: var(--mask);
-    z-index: 98;
-  }
-
-  .section-news *:not(span, p){
-    position: absolute;
-  }
-
-  .section-news__img {
-    height: 100%;
-    /* border: 1px solid black; */
-  }
-
-  /* REACT */
-  .section-news__language--position1 {
-    width: 70%;
-    height: 15%;
-    left: 40%;
-    transform: skewY(-20deg);
-  }
-
-  /* JS */
-  .section-news__language--position2 {
-    width: 17%;
-    height: 7.5%;
-    top: 50%;
-    left: 50%;
-    opacity: 0.4;
-    filter: grayscale();
-    animation: float 1s linear infinite alternate;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translateY(-40%);
-    }
-
-    100% {
-      transform: translateY(0%);
-    }
-  }
-
-  /* CSS */
-  .section-news__language--position3 {
-    width: 15%;
-    height: 5%;
-    top: 55%;
-    left: 5%;
-    opacity: 0.7;
-  }
-
-  /* HTML */
-  .section-news__language--position4 {
-    width: 30%;
-    height: 13%;
-    top: 75%;
-    left: 60%;
-    animation: turn 2.5s linear infinite alternate;
-    filter: blur(0.10em);
-  }
-
-  @keyframes turn {
-    0% {
-      rotate: -25deg;
-    }
-  }
-
-  .section-news__info-language {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 2px solid white; */
-  }
-
-  /* SQL INFO */
-  .section-news__info-language--position1 {
-    width: 45%;
-    height: 35%;
-    top: 5%;
-    left: -4%;
-    background-image: url(../images/Thought.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 13.4375em 17.5em;
-    rotate: -10deg;
-    filter: drop-shadow(0 0 1.25em #000);
-  }
-
-  /* REACT INFO */
-  .section-news__info-language--position2 {
-    width: 70%;
-    height: 20%;
-    top: 65%;
-    left: -40px;
-    background-image: url(../images/frame.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 16.25em 8.125em;
-    rotate: -15deg;
-    filter: drop-shadow(0 0 0.4375em #000);
-  }
-
-  /* PYTHON INFO */
-  .section-news__info-language--position3 {
-    width: 70%;
-    height: 25%;
-    top: 37%;
-    left: 45%;
-    background-image: url(../images/shapeWavy.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 21.875em 12.5em;
-    rotate: 15deg;
-    mix-blend-mode: multiply;
-    filter: drop-shadow(0 0 .5em #0007);
-  }
-
-  .section-news__info-language-description-1,
-  .section-news__info-language-description-2,
-  .section-news__info-language-description-3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    /* border: 2px solid rgb(255, 0, 0); */
-  }
-
-  /* SQL DESCRIPTION */
-  .section-news__info-language-description-1 {
-    margin: -1.875em 0 0 0;
-    width: 80%;
-    height: 50%;
-  }
-  /* REACT DESCRIPTION */
-  .section-news__info-language-description-2 {
-    width: 60%;
-    height: 65%;
-  }
-  /* PYTHON DESCRIPTION */
-  .section-news__info-language-description-3 {
-    margin: 0 25px 0 0;
-    width: 65%;
-    height: 60%;
-  }
-
-  .section-news__info-language-title{
-    font-size: 6vw;
-    font-weight: bold;
-    /* border: 1px solid rgb(0, 26, 255); */
-  }
-
-  .section-news__info-language-text {
-    font-size: 3.5vw;
-    word-break: break-all;
-    /* border: 1px solid rgb(38, 0, 255); */
-  }
-</style>

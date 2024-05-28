@@ -1,0 +1,21 @@
+  .footer{
+    width: 100%;
+    padding: 0 0 15px 0;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer__nav{
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-size: 6vw;
+  }
+
+  .footer__image{
+    filter: drop-shadow(0 0 5px #fff);
+  }

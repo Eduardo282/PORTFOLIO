@@ -1,5 +1,7 @@
 ---
 import imgProject from "../images/imgProject1.webp";
+
+import "../styles/stylesSectionFeaturedProjects.css"
 ---
 
 <section class="featuredProjects">
@@ -18,7 +20,7 @@ import imgProject from "../images/imgProject1.webp";
       <div class="featuredProjects__imgProjects">
         <img
           class="featuredProjects__imgProject"
-          src=`${imgProject}`
+          src={imgProject.src}
           alt="img"
         />
       </div>
@@ -36,7 +38,7 @@ import imgProject from "../images/imgProject1.webp";
       <div class="featuredProjects__imgProjects">
         <img
           class="featuredProjects__imgProject"
-          src=`${imgProject}`
+          src={imgProject.src}
           alt="img"
         />
       </div>
@@ -54,7 +56,7 @@ import imgProject from "../images/imgProject1.webp";
       <div class="featuredProjects__imgProjects">
         <img
           class="featuredProjects__imgProject"
-          src=`${imgProject}`
+          src={imgProject.src}
           alt="img"
         />
       </div>
@@ -72,7 +74,7 @@ import imgProject from "../images/imgProject1.webp";
       <div class="featuredProjects__imgProjects">
         <img
           class="featuredProjects__imgProject"
-          src=`${imgProject}`
+          src={imgProject.src}
           alt="img"
         />
       </div>
@@ -85,110 +87,3 @@ import imgProject from "../images/imgProject1.webp";
     </article>
   </div>
 </section>
-
-<style>
-  .featuredProjects {
-    margin: -50px 0 0 0;
-    padding: 50px 0 200px 0;
-    width: 100%;
-    background-image: url("https://cdn.sanity.io/images/k5uhpzjy/production/d525128dc77eb0753018a9f9af0b1c2c6c320987-750x4006.jpg?auto=format&q=90&url=https://cdn.sanity.io/images/k5uhpzjy/production/d525128dc77eb0753018a9f9af0b1c2c6c320987-750x4006.jpg&h=1800");
-    background-position: 50% 0%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .featuredProjects__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    /* border: 1px solid rgb(255, 0, 0); */
-  }
-
-  .featuredProjects__title {
-    display: block;
-    /* border: 1px solid red; */
-    text-align: center;
-    font-size: 13vw;
-    font-weight: bolder;
-    -webkit-text-stroke: 2px;
-  }
-
-  .featuredProjects__description {
-    /* border: 1px solid hsl(59, 100%, 50%); */
-    text-align: center;
-    font-size: 4vw;
-    font-weight: bolder;
-    -webkit-text-stroke: 0.1px;
-  }
-
-  .featuredProjects__project {
-    transform: rotate(3deg);
-    padding: 8px;
-    margin: 35px 0 0 0;
-    /* border: 1px solid rgb(0, 255, 0); */
-    background-color: #f8ece2;
-
-  }
-
-  .featuredProjects__project2{
-    rotate: -3deg;
-  }
-
-  .featuredProjects__project4{
-    rotate: -3deg;
-  }
-
-
-  .featuredProjects__titleProject {
-    padding: 8px;
-    -webkit-text-stroke: 1.5px;
-    border: 2px solid #000;
-  }
-
-
-
-  .featuredProjects__imgProjects {
-    padding: 5px;
-    border-style: solid;
-    border-width: 2px;
-    border-right-color: #000;
-    border-bottom-color: #000;
-    border-left-color: #000;
-  }
-
-  .featuredProjects__footProject {
-    display: flex;
-    align-items: center;
-    border-style: solid;
-    border-width: 2px;
-    border-right-color: #000;
-    border-bottom-color: #000;
-    border-left-color: #000;
-  }
-
-  .featuredProjects__footImg {
-    display: inline-block;
-    padding: 8px 0 8px 8px;
-    font-size: 3.2vw;
-    -webkit-text-stroke: 0.4px;
-  }
-
-  .featuredProjects__moreProject{
-    padding: 15px 8px;
-    display: inline-block;
-    width: 50%;
-    height: 50px;
-    border-style: solid;
-    border-left-width: 3px;
-    border-left-color: #000;
-    background-color: rgb(156, 223, 156);
-    font-size: 4vw;
-    -webkit-text-stroke: 0.7px;
-    text-transform: uppercase;
-  }
-</style>

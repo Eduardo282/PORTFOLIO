@@ -1,5 +1,5 @@
 ---
-import FooterImage from "../components/footerImage.astro"
+import "../styles/stylesBeforeFooter.css";
 ---
 
 <section class="opiniones">
@@ -47,47 +47,4 @@ import FooterImage from "../components/footerImage.astro"
       </div>
     </div>
   </div>
-  <FooterImage></FooterImage>
 </section>
-
-
-<style>
-  .opiniones {
-    position: relative;
-    margin: -235px 0 0 0;
-    padding: 250px 0 225px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: #f8ece2;
-  }
-
-  .opiniones__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    width: 80%;
-    /* border: 1px solid red; */
-  }
-
-  .opiniones__title {
-    font-weight: bold;
-    font-size: 13vw;
-    -webkit-text-stroke: 3px;
-  }
-
-  .opiniones__question {
-    text-align: center;
-    font-weight: bolder;
-    font-size: 5vw;
-    -webkit-text-stroke: 1px;
-  }
-
-  .opiniones__answer {
-    text-align: center;
-    font-weight: bold;
-  }
-</style>

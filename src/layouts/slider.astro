@@ -1,3 +1,7 @@
+---
+import "../styles/stylesSlider.css"
+---
+
 <section class="slider">
   <h3 class="slider__title">@LaloGarcia</h3>
   <div class="slider__content">
@@ -27,104 +31,3 @@
 </section>
 
 
-<style>
-  .slider {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    gap: 25px;
-    width: 100%;
-    height: 50vh;
-    background-color: #ffad97;
-    overflow: hidden;
-  }
-
-  .slider::before{
-    content: "The bests";
-    position: absolute;
-    bottom: 30px;
-    left: 0;
-    transform: rotate(-15deg);
-  }
-
-  .slider__title {
-    font-weight: bolder;
-    font-size: 9vw;
-    text-align: center;
-    -webkit-text-stroke: 2px;
-    /* border: 1px solid blue; */
-  }
-
-  .slider__content,
-  .slider2__content {
-    display: grid;
-    grid-template-columns: repeat(10, minmax(120px, 1fr));
-    gap: 15px;
-    width: auto;
-    height: 20vh;
-    border: 1px solid red;
-    animation: slider 5s linear infinite both;
-    position: relative;
-  }
-
-  .slider2__content{
-    position: absolute;
-    bottom: 62px;
-    left: 240%;
-    animation: slider2 5s linear 3.7s infinite both;
-  }
-
-  .slider__card,
-  .slider2__card {
-    width: 100%;
-    /* border: 1px solid green; */
-    padding: 5px;
-    position: relative;
-    background-color: #f8ece2;
-    background-image: url(https://images.unsplash.com/photo-1558293842-c0fd3db86157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=722&q=80);
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: 100% 70%;
-    background-origin: content-box;
-  }
-
-  .slider__card::before,
-  .slider2__card::before {
-    content: "@LaloGarcia";
-    position: absolute;
-    top: 95px;
-    left: 30px;
-    font-size: 3.5vw;
-  }
-
-  .slider__card:nth-child(odd),
-  .slider2__card:nth-child(odd){
-    transform: rotate(3deg);
-  }
-
-  .slider__card:nth-child(even),
-  .slider2__card:nth-child(even){
-    transform: rotate(-3deg);
-  }
-
-  @keyframes slider {
-    0%{
-      transform: translateX(0);
-    }
-    100%{
-      transform: translateX(-100%);
-    }
-  }
-
-  @keyframes slider2 {
-    0%{
-      transform: translateX(0);
-    }
-    100%{
-      transform: translateX(-100%);
-    }
-  }
-
-</style>

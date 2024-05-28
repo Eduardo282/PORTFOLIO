@@ -1,5 +1,7 @@
 ---
 import footerImage from "../images/footerImg.png";
+
+import "../styles/stylesFooter.css";
 ---
 
 <section class="footer">
@@ -11,31 +13,6 @@ import footerImage from "../images/footerImg.png";
     <a class="footer__link" href="#">Home</a>
   </nav>
   <div class="footer__img">
-    <img class="footer__image" src=`${footerImage}` alt="img" />
+    <img class="footer__image" src={footerImage.src} alt="img" />
   </div>
 </section>
-
-
-<style>
-  .footer{
-    width: 100%;
-    padding: 0 0 15px 0;
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .footer__nav{
-    padding: 15px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    color: #fff;
-    font-size: 6vw;
-  }
-
-  .footer__image{
-    filter: drop-shadow(0 0 5px #fff);
-  }
-</style>

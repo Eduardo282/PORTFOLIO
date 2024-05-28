@@ -1,5 +1,7 @@
 ---
 import webDeveloperPrincipal from '../images/webDeveloperPrincipal.png'
+
+import "../styles/stylesSectionFrontPage.css"
 ---
 
 <section class="front-page">
@@ -12,7 +14,7 @@ import webDeveloperPrincipal from '../images/webDeveloperPrincipal.png'
   <div class="front-page__face-user">
     <img
       class="front-page__img-user"
-      src=`${webDeveloperPrincipal}`
+      src={webDeveloperPrincipal.src}
       alt="Photo of principal developer web"
     />
   </div>
@@ -36,138 +38,3 @@ import webDeveloperPrincipal from '../images/webDeveloperPrincipal.png'
   </div>
 </section>
 
-<style>
-  .front-page {
-    position: relative;
-    margin-top: -3.25em;
-    width: 100%;
-    height: 125vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    /* border: 1px solid rgb(89, 0, 255); */
-    border-radius: 1.5625em 1.5625em 0 0;
-    background-image: url(https://cdn.sanity.io/images/k5uhpzjy/production/adf3d687c8f068816481acba00d9942d01374aa8-3000x2100.jpg?auto=format&q=75&url=https://cdn.sanity.io/images/k5uhpzjy/production/adf3d687c8f068816481acba00d9942d01374aa8-3000x2100.jpg&w=2000);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    --mask:
-    radial-gradient(53.64px at 50% calc(100% - 73.60px),#000 99%,#0000 101%) calc(50% - 92px) 0/184px 100%,
-    radial-gradient(53.64px at 50% calc(100% + 27.60px),#0000 99%,#000 101%) 50% calc(100% - 46px)/184px 100% repeat-x;
-  -webkit-mask: var(--mask);
-          mask: var(--mask);
-    z-index: 98;
-  }
-
-  .front-page__name {
-    margin-top: 2em;
-    width: 80%;
-    font-size: 10vw;
-    /* border: 1px solid rgb(255, 0, 43); */
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-stroke: 2px;
-  }
-
-  .front-page__span-name:nth-child(1),
-  .front-page__span-name:nth-child(2),
-  .front-page__span-name:nth-child(3) {
-    width: 100%;
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    line-height: 7vh;
-  }
-
-  .front-page__span-name:nth-child(1) {
-    width: 0ch;
-    border-right: 0.05em solid transparent;
-    animation: blink 0.3s ease 3, typing1 0.8s steps(8) forwards;
-  }
-
-  @keyframes blink {
-    50% {
-      border-color: var(--color-black);
-    }
-  }
-
-  @keyframes typing1 {
-    to {
-      width: 10ch;
-    }
-  }
-
-  .front-page__span-name:nth-child(2) {
-    width: 0ch;
-    border-right: 0.05em solid transparent;
-    animation: blink 0.35s ease 0.8s 3, typing2 0.9s steps(9) 0.8s forwards;
-  }
-
-  @keyframes typing2 {
-    to {
-      width: 13ch;
-    }
-  }
-
-  .front-page__span-name:nth-child(3) {
-    width: 0ch;
-    border-right: 0.05em solid transparent;
-    animation: blink 0.24s ease 1.7s 3, typing3 0.6s steps(6) 1.7s forwards;
-  }
-
-  @keyframes typing3 {
-    to {
-      width: 9ch;
-    }
-  }
-
-  .front-page__face-user {
-    margin-top: 1.5625em;
-    width: 80%;
-    /* border: 1px solid green; */
-    border-radius: 50%;
-    box-shadow: 0.35em 0.35em 1em 0.1em #00002060;
-    overflow: hidden;
-  }
-
-  .front-page__img-user {
-    filter: drop-shadow(0.35em 0.35em 1em #00002070);
-  }
-
-  .front-page__more-info {
-    margin-top: 1.5625em;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* border: 1px solid white;  */
-    overflow: hidden;
-  }
-
-  .front-page__row-down-info {
-    width: 2.1875em;
-    /* border: 1px solid rgb(255, 192, 241); */
-    animation: upDown 1.5s linear infinite alternate;
-  }
-
-  .front-page__svg {
-    height: inherit;
-  }
-
-  @keyframes upDown {
-    from {
-      transform: translateY(-0.625em);
-    }
-
-    to {
-      transform: translateY(0.0625em);
-    }
-  }
-
-  .front-page__span-info {
-    font-size: 5vw;
-    /* border: 2px solid red;  */
-  }
-</style>

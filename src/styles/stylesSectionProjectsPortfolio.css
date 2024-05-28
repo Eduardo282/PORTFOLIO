@@ -1,0 +1,45 @@
+.gridProjects {
+    margin: -350px 0 0 0;
+    padding: 150px 10px 150px 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(13, auto);
+    gap: 0.625em;
+    background-image: url(https://www.clams.lol/images/bg-cork.jpg);
+  }
+
+  .gridProjects__itemDescription span {
+    /* border: 1px solid red; */
+    font-weight: bold;
+    font-size: 10vw;
+  }
+
+  .gridProjects__itemDescription {
+    padding: 5%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3.5vw;
+    grid-column: 1 / 3;
+    /* border: 1px solid red; */
+  }
+
+  .gridProjects__itemProject {
+    display: flex;
+    flex-direction: column;
+    padding: 8%;
+    font-size: 3.7vw;
+    font-weight: bold;
+    text-align: center;
+    -webkit-text-stroke: 0.06em;
+    border-radius: 0.625em;
+    background: #f8ece2;
+  }
+
+  .gridProjects__itemProject--project5 {
+    grid-area: 4 / 1 / 6 / 3;
+  }
+  .gridProjects__titleProject {
+    text-transform: uppercase;
+  }
+

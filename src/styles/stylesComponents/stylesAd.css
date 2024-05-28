@@ -1,0 +1,14 @@
+.ad {
+  width: 9.375em;
+  height: 9.375em;
+  position: absolute;
+  z-index: 999;
+  display: none;
+  bottom: 0;
+  right: 0;
+  /* border: 2px solid green;  */
+  border-radius: 50%;
+  transform: rotate(-45deg) translateY(4.375em);
+}
+
+

@@ -1,5 +1,7 @@
 ---
-import LogoJS from '../images/jsLogo.png';
+import  logoJS  from "../images/jsLogo.png";
+
+import "../styles/stylesComponents/stylesHeader.css"
 ---
 
 <header class="header">
@@ -23,7 +25,7 @@ import LogoJS from '../images/jsLogo.png';
     </div>
 
     <div class="nav__logo-menu">
-      <img class="nav__img-menu" src=`${LogoJS}` alt="Logo of menu nav" />
+      <img class="nav__img-menu" src={logoJS.src} alt="Logo of menu nav" />
     </div>
 
     <div class="nav__gear-news">
@@ -42,60 +44,4 @@ import LogoJS from '../images/jsLogo.png';
     </div>
   </nav>
 </header>
-
-<style>
-  /********** HEADER NAV **********/
-
-.header {
-  position: relative;
-  width: 100%;
-  height: 8vh;
-  border: 0.0625em solid rgb(128, 255, 0);
-  border-top-left-radius: 1.5625em;
-  border-top-right-radius: 1.5625em;
-  z-index: 99;
-}
-
-.header__nav {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* border: 2px solid green;  */
-}
-
-.nav__menu-drop-down {
-  width: 1.875em;
-  height: 1.875em;
-  margin-left: 1.25em;
-  /* border: 2px solid rgb(132, 165, 42); */
-}
-
-.nav__logo-menu {
-  width: 2.875em;
-  height: 2.875em;
-  /* border: 2px solid rgb(0, 47, 255);  */
-}
-
-.nav__img-menu {
-  width: inherit;
-  height: inherit;
-  object-fit: cover;
-}
-
-.nav__gear-news {
-  width: 1.875em;
-  height: 1.875em;
-  margin-right: 1.25em;
-  /* border: 2px solid brown;  */
-}
-
-.nav__svg {
-  width: inherit;
-  height: inherit;
-}
-
-/********** HEADER NAV **********/
-</style>
 
