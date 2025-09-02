@@ -1,165 +1,317 @@
 .section-news {
-    width: 100%;
-    height: 125vh;
-    position: relative;
-    background-image: linear-gradient(#ff6444 40%,#f8ece2);
-    /* border: 1px solid rgb(21, 255, 0); */
-    overflow: hidden;
-    clip-path: path("M 0 0 L 359 0 V 770 C 320 748 347 662 347 625 Q 341 587 333 625 C 325 705 304 634 313 625 C 337 532 304 513 295 561 C 281 569 279 559 275 552 C 271 543 257 427 215 550 C 168 606 147 539 139 522 C 119 457 90 512 92 525 C 65 674 30 575 30 526 Q 22 501 14 527 C 5 556 58 706 0 747 Z");
-    z-index: 98;
-  }
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  /* Cyber-golden hero: fondo oscuro con foco dorado a la derecha */
+  background-color: #030006;
+  background-image: radial-gradient(
+      600px circle at 75% 35%,
+      rgba(212, 175, 55, 0.12),
+      transparent 18%
+    ),
+    radial-gradient(
+      420px circle at 20% 50%,
+      rgba(0, 0, 0, 0.35),
+      transparent 20%
+    );
+  background-repeat: no-repeat;
+  /* keep original polygon clip if you want the torn edge look */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    89% 99.5%,
+    97% 95%,
+    95% 93%,
+    93% 95%,
+    90% 98%,
+    87% 93%,
+    82% 87%,
+    85% 93%,
+    94% 85%,
+    85% 83%,
+    82% 88%,
+    77% 89%,
+    78% 88%,
+    76% 87%,
+    75% 86%,
+    72% 80%,
+    60% 87%,
+    47% 92%,
+    41% 86%,
+    39% 84%,
+    33% 81%,
+    25% 84%,
+    26% 86%,
+    18% 96%,
+    8% 90%,
+    8% 85%,
+    6% 82%,
+    4% 85%,
+    1% 88%,
+    16% 99%,
+    0 100%
+  );
+  color: white;
+  z-index: 20; /* reduced from 999 to allow header to appear above */
+  /* Aplicar el borde luminoso directamente con filter */
+  filter: drop-shadow(0 0 8px rgba(40, 242, 216, 0.6))
+    drop-shadow(0 0 16px rgba(40, 242, 216, 0.4))
+    drop-shadow(0 0 24px rgba(40, 242, 216, 0.2));
+  animation: glowPulse 3s ease-in-out infinite alternate;
+}
 
-  .section-news *:not(span, p){
-    position: absolute;
+/* Animación de pulsación del resplandor para el clip-path */
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(0 0 6px rgba(40, 242, 216, 0.4))
+      drop-shadow(0 0 12px rgba(40, 242, 216, 0.3))
+      drop-shadow(0 0 18px rgba(40, 242, 216, 0.1));
   }
-
-  .section-news__img {
-    height: 100%;
-    /* border: 1px solid black; */
+  100% {
+    filter: drop-shadow(0 0 10px rgba(40, 242, 216, 0.8))
+      drop-shadow(0 0 20px rgba(40, 242, 216, 0.5))
+      drop-shadow(0 0 30px rgba(40, 242, 216, 0.3));
   }
+}
 
-  /* REACT */
-  .section-news__language--position1 {
-    width: 70%;
-    height: 15%;
-    left: 40%;
-    transform: skewY(-20deg);
-  }
-
-  /* JS */
-  .section-news__language--position2 {
-    width: 17%;
-    height: 7.5%;
-    top: 50%;
+.section-news__title {
+  font-family: var(--font-principal, "Inter"), system-ui, sans-serif;
+  font-size: 7vw;
+  text-align: center;
+  /* border: 1px solid blue; */
+  position: absolute;
+  color: transparent;
+  background: linear-gradient(90deg, #ffffff 10%, #c8ffff 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    top: 40px;
     left: 50%;
-    opacity: 0.4;
-    filter: grayscale();
-    animation: float 1s linear infinite alternate;
-  }
+    transform: translateX(-50%);
+    width: 100%;
+}
 
-  @keyframes float {
-    0% {
-      transform: translateY(-40%);
-    }
+/* orbit container and decorative rings */
+.section-news__orbit {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 5; /* ensure rings sit above background image */
+}
 
-    100% {
-      transform: translateY(0%);
-    }
-  }
+/* Center small circle using the new element */
+.orbit__center-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30vmin;
+  height: 30vmin;
+  border: 1.5px dashed #28f2d850;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 200, 150, 0.08),
+    transparent 40%
+  );
+  box-shadow: 0 0 40px rgba(255, 150, 100, 0.15),
+    0 0 80px rgba(200, 100, 50, 0.05) inset;
+  mix-blend-mode: screen;
+  filter: blur(0.4px);
+  z-index: 4;
+  pointer-events: none;
+}
 
-  /* CSS */
-  .section-news__language--position3 {
-    width: 15%;
-    height: 5%;
-    top: 55%;
-    left: 5%;
-    opacity: 0.7;
-  }
+/* Outer rings using pseudo-elements */
+.section-news__orbit::before,
+.section-news__orbit::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
 
-  /* HTML */
-  .section-news__language--position4 {
-    width: 30%;
-    height: 13%;
-    top: 75%;
-    left: 60%;
-    animation: turn 2.5s linear infinite alternate;
-    filter: blur(0.10em);
-  }
+.section-news__orbit::before {
+  width: 72vmin;
+  height: 72vmin;
+  border: 3px double #28f2d850;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 230, 255, 0.06),
+    transparent 30%
+  );
+  box-shadow: 0 0 80px rgba(0, 200, 255, 0.18),
+    0 0 160px rgba(120, 60, 200, 0.04) inset;
+  mix-blend-mode: screen;
+  filter: blur(0.6px);
+}
 
-  @keyframes turn {
-    0% {
-      rotate: -25deg;
-    }
-  }
+.section-news__orbit::after {
+  width: 46vmin;
+  height: 46vmin;
+  border: 2px dotted #28f2d850;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.02),
+    transparent 45%
+  );
+  opacity: 1;
+}
 
-  .section-news__info-language {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 2px solid white; */
-  }
+/* orbit items (logos) sit on circular tracks and rotate as a group */
+.orbit__item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8vmin;
+  height: 8vmin;
+  display: grid;
+  place-items: center;
+  pointer-events: auto;
+  will-change: transform;
+  z-index: 6; /* make sure logos sit above rings */
+}
 
-  /* SQL INFO */
-  .section-news__info-language--position1 {
-    width: 45%;
-    height: 35%;
-    top: 5%;
-    left: -4%;
-    background-image: url(../images/Thought.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 13.4375em 17.5em;
-    rotate: -10deg;
-    filter: drop-shadow(0 0 1.25em #000);
-  }
+.orbit__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
+}
 
-  /* REACT INFO */
-  .section-news__info-language--position2 {
-    width: 70%;
-    height: 20%;
-    top: 65%;
-    left: -40px;
-    background-image: url(../images/frame.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 16.25em 8.125em;
-    rotate: -15deg;
-    filter: drop-shadow(0 0 0.4375em #000);
-  }
+/* centered transforms: each item on different orbital radius */
+.orbit__item--a {
+  transform: translate(-50%, -50%) rotate(0deg) translateX(15vmin) rotate(0deg);
+}
+.orbit__item--b {
+  transform: translate(-50%, -50%) rotate(90deg) translateX(20vmin)
+    rotate(-90deg);
+}
+.orbit__item--c {
+  transform: translate(-50%, -50%) rotate(180deg) translateX(25vmin)
+    rotate(-180deg);
+}
+.orbit__item--d {
+  transform: translate(-50%, -50%) rotate(270deg) translateX(30vmin)
+    rotate(-270deg);
+}
 
-  /* PYTHON INFO */
-  .section-news__info-language--position3 {
-    width: 70%;
-    height: 25%;
-    top: 37%;
-    left: 45%;
-    background-image: url(../images/shapeWavy.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 21.875em 12.5em;
-    rotate: 15deg;
-    mix-blend-mode: multiply;
-    filter: drop-shadow(0 0 .5em #0007);
+/* animate the whole orbit container to rotate slowly */
+@keyframes orbitRotate {
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-  .section-news__info-language-description-1,
-  .section-news__info-language-description-2,
-  .section-news__info-language-description-3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    /* border: 2px solid rgb(255, 0, 0); */
-  }
+.section-news__orbit {
+  animation: orbitRotate 15s linear infinite;
+}
 
-  /* SQL DESCRIPTION */
-  .section-news__info-language-description-1 {
-    margin: -1.875em 0 0 0;
-    width: 80%;
-    height: 50%;
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .section-news__orbit {
+    animation: none;
   }
-  /* REACT DESCRIPTION */
-  .section-news__info-language-description-2 {
-    width: 60%;
-    height: 65%;
-  }
-  /* PYTHON DESCRIPTION */
-  .section-news__info-language-description-3 {
-    margin: 0 25px 0 0;
-    width: 65%;
-    height: 60%;
-  }
+}
 
-  .section-news__info-language-title{
-    font-size: 6vw;
-    font-weight: bold;
-    /* border: 1px solid rgb(0, 26, 255); */
+/* Responsive tweaks */
+@media (max-width: 1200px) {
+  .section-news__orbit::before {
+    width: 90vmin;
+    height: 90vmin;
   }
-
-  .section-news__info-language-text {
-    font-size: 3.5vw;
-    word-break: break-all;
-    /* border: 1px solid rgb(38, 0, 255); */
+  .section-news__orbit::after {
+    width: 60vmin;
+    height: 60vmin;
   }
+  .orbit__item {
+    width: 10vmin;
+    height: 10vmin;
+  }
+  .orbit__item--a {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(12vmin)
+      rotate(0deg);
+  }
+  .orbit__item--b {
+    transform: translate(-50%, -50%) rotate(90deg) translateX(16vmin)
+      rotate(-90deg);
+  }
+  .orbit__item--c {
+    transform: translate(-50%, -50%) rotate(180deg) translateX(20vmin)
+      rotate(-180deg);
+  }
+  .orbit__item--d {
+    transform: translate(-50%, -50%) rotate(270deg) translateX(24vmin)
+      rotate(-270deg);
+  }
+}
 
+@media (max-width: 768px) {
+  .section-news__orbit::before {
+    width: 140vmin;
+    height: 140vmin;
+  }
+  .section-news__orbit::after {
+    width: 90vmin;
+    height: 90vmin;
+  }
+  .orbit__item {
+    width: 14vmin;
+    height: 14vmin;
+  }
+  .orbit__item--a {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(10vmin)
+      rotate(0deg);
+  }
+  .orbit__item--b {
+    transform: translate(-50%, -50%) rotate(90deg) translateX(14vmin)
+      rotate(-90deg);
+  }
+  .orbit__item--c {
+    transform: translate(-50%, -50%) rotate(180deg) translateX(18vmin)
+      rotate(-180deg);
+  }
+  .orbit__item--d {
+    transform: translate(-50%, -50%) rotate(270deg) translateX(22vmin)
+      rotate(-270deg);
+  }
+}
+
+@media (max-width: 420px) {
+  .orbit__item {
+    width: 16vmin;
+    height: 16vmin;
+  }
+  .orbit__item--a {
+    transform: translate(130%, -50%) rotate(0deg) translateX(15vmin)
+      rotate(0deg);
+  }
+  .orbit__item--b {
+    transform: translate(-50%, 240%) rotate(90deg) translateX(22vmin)
+      rotate(-90deg);
+  }
+  .orbit__item--c {
+    transform: translate(-150%, -50%) rotate(180deg) translateX(29vmin)
+      rotate(-180deg);
+  }
+  .orbit__item--d {
+    transform: translate(-50%, 90%) rotate(270deg) translateX(36vmin)
+      rotate(-270deg);
+  }
+}
+
+/* Small visual fallback padding */
+@media (max-width: 768px) {
+  .section-news {
+    padding: 1.5rem;
+  }
+}

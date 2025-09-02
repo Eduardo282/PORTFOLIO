@@ -1,0 +1,990 @@
+/* =============== VARIABLES PERSONALIZADAS A USAR =========================*/
+:root {
+  --first-color: #f8ecdf85;
+  /* No se utiliza este color */
+  --second-color: #6ec1e4;
+  --third-color: #50ccae;
+  --fourth-color: #ff69b4;
+  --fifth-color: #12bfdd;
+  --sixth-color: #deb88740;
+  --seventh-color: #0007;
+  --oscuro: #000;
+  --claro: #fff;
+  --transition: .3s ease-in-out;
+  --measure-container: 0 auto;
+  --measure: 100%;
+  --text-button: 1rem;
+  --pharagraph: 1.1rem;
+  --margin-container: 10rem;
+  --h1: 3.800rem;
+  /* Solo puede existir un h1 */
+  /* Antes 3.75rem */
+  --h2: 2.3rem;
+  /* Antes 2.5rem */
+  --h3: 1.1rem;
+  /* Antes 1.25rem */
+}
+
+/* Parte 1, 5 y 7 tienen toda la pantalla */
+/* Todos en hexadecimal, rem y variables*/
+
+
+/* ================ AJUSTES IMPORTANTES AL DOCUMENTO ===============*/
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Exo 2', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+
+div:is(#Home, #About, #Products, #FAQs, #Contact-us) {
+  scroll-margin-top: 22ex;
+}
+
+
+/* ========== CLASES REUSABLES ================== */
+.contenedor {
+  max-width: 56.25rem;
+  margin: var(--measure-container);
+  height: var(--measure);
+}
+
+.section {
+  /*esta de mas esta clase*/
+  width: var(--measure);
+  height: var(--measure);
+}
+
+
+
+
+
+/*========================= HEADER ==================*/
+.header {
+  width: var(--measure);
+  height: 5rem;
+  background-color: var(--claro);
+  box-shadow: 0.0625rem 0.0625rem 0.625rem 0.0625rem #0002;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navigation {
+  /* Tambien tiene la clase contenedor */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.principal-logo {
+  font-weight: 600;
+  color: var(--oscuro);
+  transition: var(--transition);
+}
+
+.principal-logo i {
+  margin-right: 0.5rem;
+  color: var(--fourth-color);
+}
+
+.principal-logo:hover {
+  color: var(--second-color);
+}
+
+.menu-navigation li {
+  display: inline-block;
+  font-weight: 400;
+  font-style: italic;
+  margin-right: 2.188rem;
+}
+
+.menu-navigation a {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--oscuro);
+
+}
+
+.bar {
+  width: 50%;
+  border: 0.0938rem solid var(--fourth-color);
+  background-color: var(--fourth-color);
+}
+
+
+.menu-navigation a:hover {
+  color: var(--fourth-color);
+}
+
+.menu-navigation {
+  display: flex;
+  align-items: center;
+  margin-left: 15.625rem;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.nav-buttons i {
+  cursor: pointer;
+}
+
+.menu-mobile {
+  display: none;
+}
+
+/* media queries HEADER */
+@media screen and (max-width: 4080px) {
+
+  .header {
+      padding: 0 0.5rem 0 0.5rem; 
+    }
+
+  .navigation {
+    position: relative;
+  }
+
+  .principal-logo i {
+    display: inline;
+  }
+
+  .menu-navigation li {
+    display: none;
+  }
+
+  .menu-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 5%;
+    background-color: #ff69b440;
+    position: absolute;
+    right: 0;
+    transition: height 1s linear;
+  }
+
+  .menu-mobile a:hover {
+    color: var(--claro);
+  }
+
+  .menu-mobile a {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--oscuro);
+
+  }
+
+  .menu-mobile li {
+    display: block;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .bar {
+    width: 50%;
+    border: 0.0938rem solid var(--claro);
+    background-color: var(--claro);
+  }
+
+  .menu-hamburguer {
+    display: block;
+  }
+
+  .nav-buttons{
+    position: absolute;
+    right: 0;
+  }
+
+  .nav-buttons *{
+    padding: 0.3rem;
+  }
+
+  
+}
+
+.showMenu {
+  height: 30%;
+}
+
+/* ============PORTADA ================== */
+.frontPageSection {
+  height: 100vh;
+}
+
+.frontPage {
+  /* Tambien tiene la clase contenedor */
+  display: flex;
+  align-items: center;
+  height: auto;
+  margin-top: 5rem;
+}
+
+.frontPage img {
+  max-width: var(--measure);
+  height: auto;
+  width: 28.125rem;
+}
+
+.data-frontPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.data-frontPage h1 {
+  /* Solo puede existir un h1*/
+  font-size: var(--h1);
+  font-weight: 600;
+  color: var(--oscuro);
+  margin-bottom: 0;
+}
+
+.data-frontPage p {
+  font-size: var(--pharagraph);
+  font-weight: 400;
+  color: var(--seventh-color);
+  margin-bottom: 2rem;
+}
+
+.button-explore {
+  background-color: var(--second-color);
+  border-radius: .5rem;
+  padding: 1rem;
+  color: var(--claro);
+  width: 9rem;
+  height: var(--measure);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 1rem;
+}
+
+.button-explore a {
+  font-weight: 600;
+  font-size: var(--text-button);
+  color: var(--claro);
+}
+
+.button-explore i {
+  transition: var(--transition);
+}
+
+.button-explore:hover i {
+  transform: translateX(.5rem);
+}
+
+.button-explore:hover {
+  background-color: var(--fifth-color);
+}
+
+.frontPage-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 15.625rem;
+}
+
+.frontPage-social span {
+  display: inline-block;
+  height: 1.25rem;
+  width: 5rem;
+  transform: rotateZ(90deg);
+  position: relative;
+  color: var(--second-color);
+}
+
+.frontPage-social .frontPage-social-links {
+  display: inline-block;
+  margin-top: 3rem;
+}
+
+.frontPage-social-links a {
+  color: var(--second-color);
+  display: block;
+  margin-top: .438rem;
+  transition: var(--transition);
+}
+
+.frontPage-social-links a:hover {
+  transform: translateX(.5rem);
+}
+
+.frontPage-social span::after {
+  content: "";
+  position: absolute;
+  width: .125rem;
+  height: 1.875rem;
+  background-color: var(--second-color);
+  transform: rotateZ(90deg);
+  top: -0.188rem;
+  left: 5.938rem;
+}
+
+
+
+
+
+/* ================ ACERCA DE ================== */
+.about {
+  /* Tambien tiene la clase contenedor */
+  margin-top: var(--margin-container);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 3rem;
+}
+
+.about img {
+  width: 23.75rem;
+  max-width: var(--measure);
+  height: auto;
+}
+
+.data h2 {
+  font-size: var(--h2);
+  font-weight: 600;
+  color: var(--oscuro);
+  margin-bottom: 0;
+}
+
+.data a {
+  display: block;
+  color: var(--second-color);
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 3rem;
+  font-size: var(--text-button);
+}
+
+.data i {
+  transition: var(--transition);
+}
+
+.data a:hover i {
+  transform: translateX(.5rem);
+}
+
+.data p:not(.details p) {
+  font-size: var(--pharagraph);
+  font-weight: 400;
+  color: var(--seventh-color);
+  margin-bottom: 2rem;
+}
+
+.details i {
+  color: var(--second-color);
+  margin-right: .5rem;
+}
+
+.details p {
+  color: var(--seventh-color);
+}
+
+
+
+
+
+/* ============================ RECOMENDACIONES ================ */
+.recommendations {
+  /* Tambien tiene la clase contenedor */
+  margin-top: var(--margin-container);
+}
+
+.background {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: var(--second-color);
+  padding: 3rem 2.5rem;
+  border-radius: 1.5rem;
+}
+
+.background h2 {
+  display: inline-block;
+}
+
+.background h2 {
+  font-size: var(--h2);
+  font-weight: 600;
+  color: var(--claro);
+  margin-bottom: 0;
+}
+
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.recommendation-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--claro);
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+}
+
+.recommendation-number {
+  display: inline-block;
+  width: 3.125rem;
+  height: 3.125rem;
+  background-color: var(--second-color);
+  border-radius: .5rem;
+  text-align: center;
+  line-height: 3.125rem;
+  color: var(--claro);
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.recommendation-card:hover .recommendation-number {
+  transform: translateY(-.5rem);
+}
+
+.recommendation-card h3 {
+  font-size: var(--h3);
+  font-weight: 600;
+  color: var(--oscuro);
+  margin-bottom: 0;
+}
+
+.recommendation-card p {
+  font-size: var(--pharagraph);
+  font-weight: 400;
+  color: var(--seventh-color);
+  margin-bottom: 0;
+}
+
+
+
+
+
+/* ==================== PRODUCTOS =================== */
+.products {
+  margin-top: var(--margin-container);
+}
+
+.products h2 {
+  text-align: center;
+}
+
+.products h2 {
+  font-size: var(--h2);
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.products p {
+  font-size: var(--pharagraph);
+  font-weight: 400;
+  color: var(--oscuro);
+  margin: 2rem 0;
+  text-align: center;
+  color: var(--seventh-color);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5rem;
+  margin-top: 1rem;
+}
+
+.products-card {
+  position: relative;
+}
+
+.products-card h3 {
+  font-size: var(--h3);
+  font-weight: 600;
+  margin-bottom: 0.625rem;
+}
+
+.products-card button {
+  border: none;
+  border-radius: .3rem;
+  background-color: var(--second-color);
+  color: var(--claro);
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.products-card button:hover {
+  background-color: var(--fifth-color);
+}
+
+.products-card .img-product {
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+  margin: 0 auto;
+}
+
+.products-card span {
+  font-size: var(--h3);
+  font-weight: 600;
+}
+
+.img-product img {
+  max-width: var(--measure);
+  height: auto;
+  transition: var(--transition);
+  object-fit: cover;
+}
+
+.img-product img:not([src="img/Dona4.png"], [src="img/Dona3.png"], [src="img/Dona6.png"]) {
+  width: 10rem;
+  height: 10rem;
+}
+
+.products-card:hover img {
+  transform: translateY(-.5rem);
+}
+
+.products-circle:not(#circle1, #circle2) {
+  background-color: var(--third-color);
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  opacity: .2;
+  top: 2.5rem;
+  left: 0;
+  z-index: -1;
+}
+
+#circle1 {
+  background-color: var(--third-color);
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  opacity: .2;
+  top: 2.5rem;
+  right: 5.9375rem;
+  z-index: -1;
+}
+
+#circle2 {
+  background-color: var(--third-color);
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  opacity: .2;
+  top: 1.25rem;
+  right: 5rem;
+  z-index: -1;
+}
+
+
+
+
+
+/* ==================== PREGUNTAS Y RESPUESTAS ============================ */
+.questions {
+  /* Tambien tiene la clase section */
+  background-color: var(--sixth-color);
+  margin-top: var(--margin-container);
+  padding: 6rem 0 4rem 0;
+}
+
+.questions h2 {
+  font-size: var(--h2);
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.questions-grid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.questions-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.questions-item {
+  display: flex;
+  flex-flow: row wrap;
+  background-color: var(--claro);
+  border-radius: .3rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0 1rem 1rem;
+  gap: .5rem;
+  cursor: pointer;
+  overflow: hidden;
+  height: 3.1rem;
+}
+
+.questions-item h3 {
+  font-size: var(--h3);
+  font-weight: 500;
+  margin: 0;
+}
+
+.questions-group .questions-item {
+  transition: height .5s ease-in-out,
+    background-color .5s ease-in-out,
+    transform .5s ease-in-out;
+}
+
+.questions-group .questions-item:hover {
+  box-shadow: 0.25rem 0.25rem 0.625rem 0 #0000004d;
+}
+
+
+/*al desplegar la caja*/
+.boxShow {
+  height: 10rem;
+}
+
+.rotateCross {
+  transform: rotate(180deg);
+}
+
+.bgColor {
+  background-color: #ff69b430;
+}
+
+.animate {
+  animation: animateText 1s linear;
+}
+
+
+@keyframes animateText {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* ========================= CONTACTO ==================== */
+.contact {
+  margin-top: var(--margin-container);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+}
+
+.box-contact h2 {
+  font-size: var(--h2);
+  font-weight: 600;
+  margin: 0 0 2.1875rem 0;
+}
+
+/* .box-contact{
+    background-color: tomato;
+} */
+
+.contact-information:nth-child(1) {
+  margin: 0 0 2.1875rem 0;
+}
+
+.contact-information h3 {
+  font-size: var(--h3);
+  font-weight: 400;
+  margin-bottom: 0.625rem;
+  color: var(--seventh-color);
+}
+
+.contact-information i {
+  margin-right: .5rem;
+}
+
+/* .form{
+   background-color: #12bfdd;
+} */
+
+.form button {
+  background-color: var(--second-color);
+  border-radius: .5rem;
+  padding: 1rem;
+  color: var(--claro);
+  width: 11rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 2rem;
+  font-size: var(--text-button);
+  font-weight: 600;
+}
+
+.form i {
+  transition: var(--transition);
+}
+
+.form button:hover i {
+  transform: translateX(.5rem);
+}
+
+.form button:hover {
+  background-color: var(--fifth-color);
+}
+
+/* .contact-inputs{
+    background-color: var(--fourth-color);
+} */
+
+/* .contact-content{
+   background-color: wheat;
+} */
+
+.contact-content * {
+  display: block;
+}
+
+.contact-content input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 0.0625rem solid #00000080;
+}
+
+.area textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  border-bottom: 0.0625rem solid #00000080;
+}
+
+.contact-content label {
+  color: #00000080;
+}
+
+.contact-content:not(:nth-child(1)) {
+  margin-top: 3rem;
+}
+
+
+
+
+
+/* ================= FOOTER ======================= */
+.footer {
+  /* Tambien tiene la clase section */
+  margin-top: var(--margin-container);
+}
+
+.footer p {
+  /* Tambien tiene la clase section */
+  text-align: center;
+  opacity: .3;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.footer-cards img {
+  max-width: var(--measure);
+  height: auto;
+  width: 1.875rem;
+}
+
+.footer-grid {
+  /* Tambien tiene la clase contenedor */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+
+.content-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-footer h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  /* Medida especial para h3-footer */
+  /* font-size: var(--h3); */
+  font-weight: 600;
+}
+
+.content-footer a {
+  color: var(--oscuro);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  transition: var(--transition);
+}
+
+.content-footer a:hover {
+  color: var(--second-color);
+}
+
+.content-footer li {
+  color: var(--seventh-color);
+}
+
+.content-footer i:not(.three i, .footer-subscribe i) {
+  margin-right: .5rem;
+  color: var(--fourth-color);
+}
+
+.footer-subscribe {
+  background-color: var(--sixth-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5rem;
+  margin-top: 1.5rem;
+  border-radius: .5rem;
+}
+
+.footer-subscribe input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin: 0;
+}
+
+.footer-subscribe button {
+  background-color: var(--second-color);
+  border-radius: .5rem;
+  padding: 1rem;
+  color: var(--claro);
+  width: 9rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: var(--text-button);
+  font-weight: 600;
+}
+
+.footer-subscribe i {
+  transition: var(--transition);
+}
+
+.footer-subscribe button:hover i {
+  transform: translateX(.5rem);
+}
+
+.footer-subscribe button:hover {
+  background-color: var(--fifth-color);
+}
+
+.footer-subscribe [type="email"]::placeholder {
+  font-size: var(--h3);
+  font-weight: 400;
+  color: var(--seventh-color);
+}
+
+.two ul {
+  padding: 0;
+  margin: 2rem 0 0 0;
+}
+
+.two li:nth-child(2),
+.two li:nth-child(3) {
+  margin-top: 1rem;
+}
+
+.three ul {
+  padding: 0;
+  margin: 2rem 0 0 0;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer-social i {
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.footer-social i:hover {
+  transform: translateY(-.5rem);
+
+}
+
+.footer-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+
+}
+
+.up {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  z-index: 10;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: var(--second-color);
+  padding: .5rem;
+  border-radius: .3rem;
+  color: var(--claro);
+}
+
+.up:hover {
+  background-color: var(--fifth-color);
+}
+
+
+
+
+
+
+
+
+
+
+/* ========== MENU HAMBURGUESA ================  */
+.navigation-close {
+  display: none;
+}

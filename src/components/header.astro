@@ -1,47 +1,265 @@
 ---
-import  logoJS  from "../images/jsLogo.png";
-
-import "../styles/stylesComponents/stylesHeader.css"
+import "../styles/stylesComponents/stylesHeader.css";
 ---
 
 <header class="header">
   <nav class="header__nav nav">
-    <div class="nav__menu-drop-down">
+    <div
+      class="nav__menu-drop-down"
+      tabindex="0"
+      role="button"
+      aria-label="Abrir menú"
+      aria-expanded="false">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="nav__svg bi bi-file-earmark-plus"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"
-        ></path>
-        <path
-          d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"
-        ></path>
+        width="21"
+        height="20"
+        viewBox="0 0 21 20"
+        fill="none">
+        <g clip-path="url(#clip0_310_199)">
+          <path
+            d="M6.33333 5H19.6667C19.8877 5 20.0996 4.9122 20.2559 4.75592C20.4122 4.59964 20.5 4.38768 20.5 4.16667C20.5 3.94565 20.4122 3.73369 20.2559 3.57741C20.0996 3.42113 19.8877 3.33333 19.6667 3.33333H6.33333C6.11232 3.33333 5.90036 3.42113 5.74408 3.57741C5.5878 3.73369 5.5 3.94565 5.5 4.16667C5.5 4.38768 5.5878 4.59964 5.74408 4.75592C5.90036 4.9122 6.11232 5 6.33333 5Z"
+            fill="white"></path>
+          <path
+            d="M19.6667 9.16667H6.33333C6.11232 9.16667 5.90036 9.25447 5.74408 9.41075C5.5878 9.56703 5.5 9.77899 5.5 10C5.5 10.221 5.5878 10.433 5.74408 10.5893C5.90036 10.7455 6.11232 10.8333 6.33333 10.8333H19.6667C19.8877 10.8333 20.0996 10.7455 20.2559 10.5893C20.4122 10.433 20.5 10.221 20.5 10C20.5 9.77899 20.4122 9.56703 20.2559 9.41075C20.0996 9.25447 19.8877 9.16667 19.6667 9.16667Z"
+            fill="white"></path>
+          <path
+            d="M19.6667 15H6.33333C6.11232 15 5.90036 15.0878 5.74408 15.2441C5.5878 15.4004 5.5 15.6123 5.5 15.8333C5.5 16.0543 5.5878 16.2663 5.74408 16.4226C5.90036 16.5789 6.11232 16.6667 6.33333 16.6667H19.6667C19.8877 16.6667 20.0996 16.5789 20.2559 16.4226C20.4122 16.2663 20.5 16.0543 20.5 15.8333C20.5 15.6123 20.4122 15.4004 20.2559 15.2441C20.0996 15.0878 19.8877 15 19.6667 15Z"
+            fill="white"></path>
+          <path
+            d="M2.16667 5.83333C3.08714 5.83333 3.83333 5.08714 3.83333 4.16667C3.83333 3.24619 3.08714 2.5 2.16667 2.5C1.24619 2.5 0.5 3.24619 0.5 4.16667C0.5 5.08714 1.24619 5.83333 2.16667 5.83333Z"
+            fill="white"></path>
+          <path
+            d="M2.16667 11.6667C3.08714 11.6667 3.83333 10.9205 3.83333 10C3.83333 9.07952 3.08714 8.33333 2.16667 8.33333C1.24619 8.33333 0.5 9.07952 0.5 10C0.5 10.9205 1.24619 11.6667 2.16667 11.6667Z"
+            fill="white"></path>
+          <path
+            d="M2.16667 17.5C3.08714 17.5 3.83333 16.7538 3.83333 15.8333C3.83333 14.9129 3.08714 14.1667 2.16667 14.1667C1.24619 14.1667 0.5 14.9129 0.5 15.8333C0.5 16.7538 1.24619 17.5 2.16667 17.5Z"
+            fill="white"></path>
+        </g>
+        <defs>
+          <clipPath id="clip0_310_199">
+            <rect width="20" height="20" fill="white" transform="translate(0.5)"
+            ></rect>
+          </clipPath>
+        </defs>
       </svg>
     </div>
 
+    <!-- Dropdown menu panel (hidden by default) -->
+    <div class="nav__menu-panel" role="menu" aria-hidden="true">
+      <ul>
+        <li><a href="/" role="menuitem">Inicio</a></li>
+        <li><a href="#whatIs" role="menuitem">Sobre mí</a></li>
+        <li><a href="#projects" role="menuitem">Proyectos</a></li>
+        <li><a href="/cv.pdf" role="menuitem">Ver CV</a></li>
+        <li><a href="#contact" role="menuitem">Contacto</a></li>
+      </ul>
+    </div>
+
     <div class="nav__logo-menu">
-      <img class="nav__img-menu" src={logoJS.src} alt="Logo of menu nav" />
+      PORTFOLIO
     </div>
 
     <div class="nav__gear-news">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="nav__svg bi bi-gear-fill"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
-        ></path>
+        width="21"
+        height="20"
+        viewBox="0 0 21 20"
+        fill="#ffff">
+        <g clip-path="url(#clip0_310_207)">
+          <path
+            d="M13 20H8.00001V17.0725C7.13105 16.7651 6.32622 16.3001 5.62584 15.7008L3.08917 17.1667L0.589172 12.8333L3.12501 11.3708C2.95843 10.4645 2.95843 9.53546 3.12501 8.62916L0.589172 7.16667L3.08917 2.83333L5.62584 4.29916C6.32622 3.69994 7.13105 3.23494 8.00001 2.9275V-1.90735e-06H13V2.9275C13.869 3.23494 14.6738 3.69994 15.3742 4.29916L17.9108 2.83333L20.4108 7.16667L17.875 8.62916C18.0416 9.53546 18.0416 10.4645 17.875 11.3708L20.4108 12.8333L17.9108 17.1667L15.3742 15.7017C14.6737 16.3006 13.8689 16.7653 13 17.0725V20ZM9.66667 18.3333H11.3333V15.8108L11.9592 15.6492C12.9858 15.3832 13.9203 14.8418 14.6617 14.0833L15.1142 13.6225L17.3 14.885L18.1333 13.4417L15.95 12.1808L16.1217 11.5592C16.4039 10.5366 16.4039 9.45672 16.1217 8.43417L15.95 7.8125L18.1333 6.55166L17.3 5.10833L15.1142 6.37416L14.6617 5.91666C13.9199 5.15945 12.9855 4.61918 11.9592 4.35416L11.3333 4.18916V1.66666H9.66667V4.18916L9.04084 4.35083C8.01416 4.61679 7.07968 5.15823 6.33834 5.91666L5.88584 6.3775L3.70001 5.11166L2.86667 6.555L5.05001 7.81583L4.87834 8.4375C4.59614 9.46005 4.59614 10.5399 4.87834 11.5625L5.05001 12.1842L2.86667 13.445L3.70001 14.8883L5.88584 13.6258L6.33834 14.0867C7.08008 14.8439 8.01453 15.3841 9.04084 15.6492L9.66667 15.8108V18.3333ZM10.5 13.3333C9.84073 13.3333 9.19627 13.1378 8.64811 12.7716C8.09994 12.4053 7.6727 11.8847 7.42041 11.2756C7.16811 10.6665 7.1021 9.9963 7.23072 9.3497C7.35934 8.70309 7.67681 8.10915 8.14298 7.64298C8.60916 7.1768 9.2031 6.85933 9.8497 6.73071C10.4963 6.6021 11.1665 6.66811 11.7756 6.9204C12.3847 7.17269 12.9053 7.59993 13.2716 8.1481C13.6378 8.69626 13.8333 9.34073 13.8333 10C13.8333 10.8841 13.4822 11.7319 12.857 12.357C12.2319 12.9821 11.3841 13.3333 10.5 13.3333ZM10.5 8.33333C10.1704 8.33333 9.84814 8.43108 9.57406 8.61421C9.29997 8.79735 9.08635 9.05765 8.96021 9.36219C8.83406 9.66674 8.80105 10.0018 8.86536 10.3251C8.92967 10.6484 9.08841 10.9454 9.3215 11.1785C9.55458 11.4116 9.85155 11.5703 10.1749 11.6346C10.4982 11.6989 10.8333 11.6659 11.1378 11.5398C11.4424 11.4137 11.7027 11.2 11.8858 10.9259C12.0689 10.6519 12.1667 10.3296 12.1667 10C12.1667 9.55797 11.9911 9.13405 11.6785 8.82149C11.366 8.50893 10.942 8.33333 10.5 8.33333Z"
+            fill="white"></path>
+        </g>
+        <defs>
+          <clipPath id="clip0_310_207">
+            <rect width="20" height="20" fill="white" transform="translate(0.5)"
+            ></rect>
+          </clipPath>
+        </defs>
       </svg>
+    </div>
+
+    <!-- Settings panel -->
+    <div class="nav__settings-panel" aria-hidden="true">
+      <h4>Preferencias</h4>
+      <div class="setting">
+        <label for="themeToggle">Tema</label>
+        <button id="themeToggle" class="toggle" aria-pressed="false"
+          >Oscuro</button
+        >
+      </div>
+      <div class="setting">
+        <label for="reduceMotionToggle">Reducir movimiento</label>
+        <button id="reduceMotionToggle" class="toggle" aria-pressed="false"
+          >Off</button
+        >
+      </div>
+      <div class="setting">
+        <label for="bigTextToggle">Texto grande</label>
+        <button id="bigTextToggle" class="toggle" aria-pressed="false"
+          >Off</button
+        >
+      </div>
     </div>
   </nav>
 </header>
 
+<script>
+  // Header interactivity: menu + settings + scroll highlight
+  (() => {
+    const menuBtn = document.querySelector(".nav__menu-drop-down");
+    const menuPanel = document.querySelector(".nav__menu-panel");
+    const gearBtn = document.querySelector(".nav__gear-news");
+    const settingsPanel = document.querySelector(".nav__settings-panel");
+
+    function closePanels() {
+      if (menuPanel) {
+        menuPanel.classList.remove("is-open");
+        menuPanel.setAttribute("aria-hidden", "true");
+        menuBtn && menuBtn.setAttribute("aria-expanded", "false");
+      }
+      if (settingsPanel) {
+        settingsPanel.classList.remove("is-open");
+        settingsPanel.setAttribute("aria-hidden", "true");
+      }
+    }
+
+    // Toggle helpers
+    menuBtn &&
+      menuBtn.addEventListener("click", (e) => {
+        const open = menuPanel.classList.toggle("is-open");
+        menuPanel.setAttribute("aria-hidden", String(!open));
+        menuBtn.setAttribute("aria-expanded", String(open));
+        // close settings if open
+        settingsPanel && settingsPanel.classList.remove("is-open");
+      });
+
+    gearBtn &&
+      gearBtn.addEventListener("click", (e) => {
+        const open = settingsPanel.classList.toggle("is-open");
+        settingsPanel.setAttribute("aria-hidden", String(!open));
+        // close menu if open
+        menuPanel && menuPanel.classList.remove("is-open");
+        menuBtn && menuBtn.setAttribute("aria-expanded", "false");
+      });
+
+    // Close panels on outside click or Esc
+    document.addEventListener("click", (e) => {
+      const target = e.target as Node;
+      const insideMenu =
+        menuPanel && (menuPanel.contains(target) || menuBtn.contains(target));
+      const insideSettings =
+        settingsPanel &&
+        (settingsPanel.contains(target) || gearBtn.contains(target));
+      if (!insideMenu && !insideSettings) closePanels();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closePanels();
+    });
+
+    // Settings toggles: theme + reduce motion + big text
+    const themeToggle = document.getElementById("themeToggle");
+    const reduceMotionToggle = document.getElementById("reduceMotionToggle");
+    const bigTextToggle = document.getElementById("bigTextToggle");
+
+    // init from localStorage
+    try {
+      const theme = localStorage.getItem("site-theme");
+      if (theme) document.documentElement.setAttribute("data-theme", theme);
+      if (themeToggle) {
+        const isDark =
+          document.documentElement.getAttribute("data-theme") === "dark";
+        themeToggle.textContent = isDark ? "Oscuro" : "Claro";
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+      }
+      const reduced = localStorage.getItem("reduce-motion") === "1";
+      if (reduced && reduceMotionToggle) {
+        reduceMotionToggle.textContent = "On";
+        reduceMotionToggle.setAttribute("aria-pressed", "true");
+        document.documentElement.classList.add("reduced-motion");
+      }
+      const bigText = localStorage.getItem("big-text") === "1";
+      if (bigText && bigTextToggle) {
+        bigTextToggle.textContent = "On";
+        bigTextToggle.setAttribute("aria-pressed", "true");
+        document.documentElement.classList.add("big-text");
+      }
+    } catch (e) {}
+
+    themeToggle &&
+      themeToggle.addEventListener("click", () => {
+        const current =
+          document.documentElement.getAttribute("data-theme") === "dark" ?
+            "dark"
+          : "light";
+        const next = current === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        themeToggle.textContent = next === "dark" ? "Oscuro" : "Claro";
+        themeToggle.setAttribute("aria-pressed", String(next === "dark"));
+        try {
+          localStorage.setItem("site-theme", next);
+        } catch (e) {}
+      });
+
+    reduceMotionToggle &&
+      reduceMotionToggle.addEventListener("click", () => {
+        const pressed =
+          reduceMotionToggle.getAttribute("aria-pressed") === "true";
+        reduceMotionToggle.setAttribute("aria-pressed", String(!pressed));
+        reduceMotionToggle.textContent = pressed ? "Off" : "On";
+        document.documentElement.classList.toggle("reduced-motion");
+        try {
+          localStorage.setItem("reduce-motion", pressed ? "0" : "1");
+        } catch (e) {}
+      });
+
+    bigTextToggle &&
+      bigTextToggle.addEventListener("click", () => {
+        const pressed = bigTextToggle.getAttribute("aria-pressed") === "true";
+        bigTextToggle.setAttribute("aria-pressed", String(!pressed));
+        bigTextToggle.textContent = pressed ? "Off" : "On";
+        document.documentElement.classList.toggle("big-text");
+        try {
+          localStorage.setItem("big-text", pressed ? "0" : "1");
+        } catch (e) {}
+      });
+
+    // Scroll handling: toggle .scrolled when the header reaches the top of the viewport
+    const header = document.querySelector(".header");
+    if (header) {
+      let ticking = false;
+
+      const applyScrolled = () => {
+        // Determine if the header is pinned to the top
+        const rect = header.getBoundingClientRect();
+        const scrolled = rect.top <= 0; // header reached top
+        header.classList.toggle("scrolled", scrolled);
+      };
+
+      // If reduced-motion is active, just set initial state and avoid animation listeners
+      if (document.documentElement.classList.contains("reduced-motion")) {
+        applyScrolled();
+      } else {
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              window.requestAnimationFrame(() => {
+                applyScrolled();
+                ticking = false;
+              });
+              ticking = true;
+            }
+          },
+          { passive: true }
+        );
+
+        // initialize on load and on resize (header position may change)
+        applyScrolled();
+        window.addEventListener("resize", applyScrolled, { passive: true });
+      }
+    }
+  })();
+</script>

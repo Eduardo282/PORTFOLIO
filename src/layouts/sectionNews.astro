@@ -1,68 +1,29 @@
 ---
-import react from "../images/frameworkReact.png";
+import react from "../images/react.png";
 import js from "../images/js.png";
 import css from "../images/css.png";
 import html from "../images/html.png";
 
-import "../styles/stylesSectionNews.css"
+import "../styles/stylesSectionNews.css";
+import Header from "../components/header.astro";
 ---
 
 <section class="section-news">
-  <div class="section-news__language section-news__language--position1">
-    <img class="section-news__img" src={react.src} alt="PHP" />
-  </div>
-
-  <div class="section-news__language section-news__language--position2">
-    <img class="section-news__img" src={js.src} alt="JS" />
-  </div>
-
-  <div class="section-news__language section-news__language--position3">
-    <img class="section-news__img" src={css.src} alt="CSS" />
-  </div>
-
-  <div class="section-news__language section-news__language--position4">
-    <img class="section-news__img" src={html.src} alt="HTML" />
-  </div>
-
-  <div
-    class="section-news__info-language section-news__info-language--position1"
-  >
-    <div
-      class="section-news__info-language-description-1 section-news__info-language-text--rotate1"
-    >
-      <span class="section-news__info-language-title">SQL</span>
-      <p class="section-news__info-language-text">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt culpa
-        alias
-      </p>
+  <!-- decorative concentric rings are drawn with CSS; logos orbit the center -->
+  <h3 class="section-news__title">Tecnologias y habilidades</h3>
+  <div class="section-news__orbit" aria-hidden="true">
+    <div class="orbit__center-ring"></div>
+    <div class="orbit__item orbit__item--a">
+      <img src={react.src} alt="React" />
     </div>
-  </div>
-
-  <div
-    class="section-news__info-language section-news__info-language--position2"
-  >
-    <div
-      class="section-news__info-language-description-2 section-news__info-language-text--rotate2"
-    >
-      <span class="section-news__info-language-title">REACT</span>
-      <p class="section-news__info-language-text">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit
-      </p>
+    <div class="orbit__item orbit__item--b">
+      <img src={js.src} alt="JavaScript" />
     </div>
-  </div>
-
-  <div
-    class="section-news__info-language section-news__info-language--position3"
-  >
-    <div
-      class="section-news__info-language-description-3 section-news__info-language-text--rotate3"
-    >
-      <span class="section-news__info-language-title">PYTHON</span>
-      <p class="section-news__info-language-text">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus,
-        explicabo fugiat
-      </p>
+    <div class="orbit__item orbit__item--c">
+      <img src={css.src} alt="CSS" />
+    </div>
+    <div class="orbit__item orbit__item--d">
+      <img src={html.src} alt="HTML" />
     </div>
   </div>
 </section>
-

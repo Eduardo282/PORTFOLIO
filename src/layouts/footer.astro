@@ -5,14 +5,25 @@ import "../styles/stylesFooter.css";
 ---
 
 <section class="footer">
-  <nav class="footer__nav">
-    <a class="footer__link" href="#">Home</a>
-    <a class="footer__link" href="#">Home</a>
-    <a class="footer__link" href="#">Home</a>
-    <a class="footer__link" href="#">Home</a>
-    <a class="footer__link" href="#">Home</a>
-  </nav>
-  <div class="footer__img">
-    <img class="footer__image" src={footerImage.src} alt="img" />
+  <div class="footer__nav">
+    <div class="footer__linkRow">
+      <a class="footer__link" href="#front-page">Pagina principal</a>
+      <a class="footer__link" href="#cv">CV</a>
+      <a class="footer__link" href="#projects">Proyectos</a>
+      <a class="footer__link" href="#about">Acerca de la pagina</a>
+      <a class="footer__link" href="#contact">Contacto</a>
+    </div>
+
+    <div class="footer__separator" aria-hidden="true"></div>
+
+    <div class="footer__meta">
+      <div class="footer__socials" aria-label="Redes sociales">
+        <a class="footer__social" href="#">GH</a>
+        <a class="footer__social" href="#">LI</a>
+        <a class="footer__social" href="#">TW</a>
+      </div>
+
+      <div class="footer__credits">Hecho con ❤️ · © 2025</div>
+    </div>
   </div>
 </section>

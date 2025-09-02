@@ -1,14 +1,54 @@
 ---
-import webDeveloperPrincipal from '../images/webDeveloperPrincipal.png'
+import webDeveloperPrincipal from "../images/webDeveloperPrincipal.png";
 
-import "../styles/stylesSectionFrontPage.css"
+import "../styles/stylesSectionFrontPage.css";
 ---
 
 <section class="front-page">
+  <div class="front-page__topbar">
+    <div class="topbar__logo">PORTFOLIO</div>
+    <div class="topbar__center">Digital Marketing</div>
+    <div class="topbar__actions">
+      <div class="topbar__status">
+        <span class="status-dot" aria-hidden="true"></span> Ver CV
+      </div>
+      <div class="topbar__lang">EN ▾</div>
+    </div>
+  </div>
   <div class="front-page__name">
-    <span class="front-page__span-name">E d u a r d o</span>
-    <span class="front-page__span-name">F r a n c i s c o</span>
-    <span class="front-page__span-name">G a r c i a</span>
+    <div class="front-page__kicker">Desarrollador Web</div>
+    <h1 class="front-page__headline">Eduardo Francisco García</h1>
+    <p class="front-page__lead">
+      Un desarrollador web en crecimiento, con un enfoque en la creación de
+      aplicaciones web modernas y eficientes. Me apasiona aprender nuevas
+      tecnologías y mejorar mis habilidades constantemente. <span class="heart"
+        >♡</span
+      >.
+    </p>
+
+    <div class="front-page__cta-row">
+      <a
+        class="cta-whatsapp"
+        href="https://wa.me/"
+        target="_blank"
+        rel="noopener noreferrer">
+        <span class="cta-whatsapp__text">Contactame en Whatsapp</span>
+        <span class="cta-whatsapp__icon" aria-hidden="true">
+          <!-- simple WhatsApp circle icon -->
+          <svg
+            width="34"
+            height="34"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="11" fill="#00e676"></circle>
+            <path
+              d="M17.2 14.6c-.3-.2-1.8-.9-2.1-.9s-.6-.1-.9.2-.9.9-1.1 1.1c-.2.2-.4.3-.7.1-1.9-.9-3.2-2.9-3.5-3.1-.3-.2-.5-.2-.8 0-.3.2-1.2.6-1.2.6s0-.8.4-1.2c.3-.3.7-.8 1.1-1 .3-.2.5-.3.8 0 .3.3 1.3 1.3 2.2 1.9.9.6 1.6.8 2 .7.4-.1 1.1-.5 1.3-.9.2-.4.1-.9 0-1.1-.1-.2-.4-.4-.6-.6-.2-.2-.5-.4-.8-.5-.3-.1-.6-.1-.9 0-.4.2-1 0-1.6.1-.6.1-1.5.6-2.4 1.9-.9 1.3-1 2.5-1 2.9s.4 1.3.9 1.6c.5.3 1.7 2.6 4.8 3.8 3.1 1.2 3.1.8 3.6.8.5 0 1.6-.6 1.8-1.3.2-.7.2-1.3.1-1.5-.1-.2-.4-.3-.7-.5z"
+              fill="#002f1f"></path>
+          </svg>
+        </span>
+      </a>
+    </div>
   </div>
 
   <div class="front-page__face-user">
@@ -19,22 +59,41 @@ import "../styles/stylesSectionFrontPage.css"
     />
   </div>
 
-  <div class="front-page__more-info">
-    <div class="front-page__row-down-info">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="front-page__svg bi bi-caret-down-fill"
-        viewBox="0 0 16 16"
-      >
+  <div class="front-page__wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 130" fill="none">
+      <g filter="url(#filter0_f_127_10)">
         <path
-          d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
-        ></path>
-      </svg>
-    </div>
-    <span class="front-page__span-info">MORE INFO</span>
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M-19 22L-3.96667 32.0833C11.0667 42.1667 41.1333 62.3333 71.2 59.8125C101.267 57.2917 131.333 32.0833 161.4 37.125C191.467 42.1667 221.533 77.4583 251.6 90.0625C281.667 102.667 311.733 92.5833 341.8 82.5C371.867 72.4167 401.933 62.3333 416.967 57.2917L432 52.25V143H416.967C401.933 143 371.867 143 341.8 143C311.733 143 281.667 143 251.6 143C221.533 143 191.467 143 161.4 143C131.333 143 101.267 143 71.2 143C41.1333 143 11.0667 143 -3.96667 143H-19V22Z"
+          fill="#FF0000"
+          fill-opacity="0.22"></path>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M-19 22L-3.96667 32.0833C11.0667 42.1667 41.1333 62.3333 71.2 59.8125C101.267 57.2917 131.333 32.0833 161.4 37.125C191.467 42.1667 221.533 77.4583 251.6 90.0625C281.667 102.667 311.733 92.5833 341.8 82.5C371.867 72.4167 401.933 62.3333 416.967 57.2917L432 52.25V143H416.967C401.933 143 371.867 143 341.8 143C311.733 143 281.667 143 251.6 143C221.533 143 191.467 143 161.4 143C131.333 143 101.267 143 71.2 143C41.1333 143 11.0667 143 -3.96667 143H-19V22Z"
+          stroke="black"></path>
+      </g>
+      <defs>
+        <filter
+          id="filter0_f_127_10"
+          x="-41"
+          y="0"
+          width="495"
+          height="165"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"></feBlend>
+          <feGaussianBlur
+            stdDeviation="11"
+            result="effect1_foregroundBlur_127_10"></feGaussianBlur>
+        </filter>
+      </defs>
+    </svg>
   </div>
 </section>
-

@@ -1,33 +1,81 @@
 ---
-import "../styles/stylesSlider.css"
+import "../styles/stylesSlider.css";
+
+import figma from "../images/tecnologias/figma.png";
+import react from "../images/tecnologias/react.png";
+import tailwind from "../images/tecnologias/tailwind.png";
+import css from "../images/tecnologias/css.png";
+import javascript from "../images/tecnologias/js.png";
+import html from "../images/tecnologias/html.png";
+import sql from "../images/tecnologias/sql.png";
+import docker from "../images/tecnologias/docker.png";
+import astro from "../images/tecnologias/astro.png";
+
+const images = [
+  {
+    src: figma.src,
+    alt: "Figma",
+  },
+  {
+    src: react.src,
+    alt: "React",
+  },
+  {
+    src: tailwind.src,
+    alt: "Tailwind",
+  },
+  {
+    src: css.src,
+    alt: "CSS",
+  },
+  {
+    src: javascript.src,
+    alt: "JavaScript",
+  },
+  {
+    src: html.src,
+    alt: "HTML",
+  },
+  {
+    src: sql.src,
+    alt: "SQL",
+  },
+  {
+    src: docker.src,
+    alt: "Docker",
+  },
+  {
+    src: astro.src,
+    alt: "Astro",
+  },
+];
 ---
 
 <section class="slider">
-  <h3 class="slider__title">@LaloGarcia</h3>
   <div class="slider__content">
-    <div class="slider__card slider__card1"></div>
-    <div class="slider__card slider__card2"></div>
-    <div class="slider__card slider__card3"></div>
-    <div class="slider__card slider__card4"></div>
-    <div class="slider__card slider__card5"></div>
-    <div class="slider__card slider__card6"></div>
-    <div class="slider__card slider__card7"></div>
-    <div class="slider__card slider__card8"></div>
-    <div class="slider__card slider__card9"></div>
-    <div class="slider__card slider__card10"></div>
+    {
+      images.map((image) => (
+        <div class="slider__card">
+          <img src={image.src} alt={image.alt} />
+        </div>
+      ))
+    }
   </div>
   <div class="slider2__content">
-    <div class="slider2__card slider2__card1"></div>
-    <div class="slider2__card slider2__card2"></div>
-    <div class="slider2__card slider2__card3"></div>
-    <div class="slider2__card slider2__card4"></div>
-    <div class="slider2__card slider2__card5"></div>
-    <div class="slider2__card slider2__card6"></div>
-    <div class="slider2__card slider2__card7"></div>
-    <div class="slider2__card slider2__card8"></div>
-    <div class="slider2__card slider2__card9"></div>
-    <div class="slider2__card slider2__card10"></div>
+    {
+      images.map((image) => (
+        <div class="slider2__card">
+          <img src={image.src} alt={image.alt} />
+        </div>
+      ))
+    }
+    <!-- Duplicado para slider infinito -->
+    {
+      images.map((image) => (
+        <div class="slider2__card">
+          <img src={image.src} alt={image.alt} />
+        </div>
+      ))
+    }
   </div>
 </section>
-
-

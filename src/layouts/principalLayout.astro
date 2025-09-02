@@ -6,22 +6,13 @@ export interface Props {
 const { title = "No hay titulo" } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
-    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -31,6 +22,19 @@ const { title = "No hay titulo" } = Astro.props;
 </html>
 
 <style is:global>
+  @font-face {
+    font-family: "ExoSpace";
+    src: url("/fonts/ExoSpace.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "chill";
+    src: url("/fonts/chill.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
   /* Aquí definimos las Custom properties */
   :root {
     --color-white: #fff3f3;
@@ -40,26 +44,22 @@ const { title = "No hay titulo" } = Astro.props;
     --color-dark: #181818;
 
     /* Tipografía */
-    --font-principal: "Special Elite", cursive;
-    --font-secundario: "Dancing Script", cursive;
+    --font-principal: "ExoSpace", cursive;
+    --font-secundario: "chill", cursive;
 
     /* Color Tipografía */
     --color-font-primario: #242222;
     --color-font-secundario: #f8f1f1;
   }
 
-  html{
+  html {
     color-scheme: dark light;
+    scroll-behavior: smooth;
   }
 
   body {
-    background-color: #FF6444;
-    padding: 0.5em;
-
     /* Configuramos la tipografía para toda la web */
-    min-height: 100vh;
     font-size: 16px;
-    font-family: var(--font-principal);
     color: var(--color-font-primario);
     /* opcional */
     line-height: 1.4em;
@@ -73,8 +73,8 @@ const { title = "No hay titulo" } = Astro.props;
     -webkit-font-smoothing: antialiased;
     /* opcional */
     -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-secundario), sans-serif;
   }
-
 
   /*
   Con este reset vamos a resolver:
@@ -97,11 +97,11 @@ const { title = "No hay titulo" } = Astro.props;
   /* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
   @media (prefers-contrast: high) {
     :root {
-    --color-white: #fff;
-    --color-black: #000;
+      --color-white: #fff;
+      --color-black: #000;
 
-    --color-font-primario: #000000;
-    --color-font-secundario: #ffffff;
+      --color-font-primario: #000000;
+      --color-font-secundario: #ffffff;
     }
   }
 
@@ -162,11 +162,6 @@ const { title = "No hay titulo" } = Astro.props;
   /* Quitamos los puntos de los <li> */
   li {
     list-style-type: none;
-  }
-
-  /* Configuramos anclas suaves */
-  html {
-    scroll-behavior: smooth;
   }
 
   /* Desactivamos estilos por defecto de las font-principales etiquetas de texto */
@@ -243,11 +238,11 @@ const { title = "No hay titulo" } = Astro.props;
   }
 
   /* Evitamos problemas con los SVG */
-  svg {
+  /* svg {
     width: 100%;
     display: block;
     fill: currentColor;
-  }
+  } */
 
   /* (Probándolo, no usar en producción) En el caso de añadir una  */
 

@@ -4,97 +4,275 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    gap: 25px;
+    gap: 2rem;
     width: 100%;
-    height: 50vh;
-    background-color: #ffad97;
+    height: 60vh;
+    min-height: 500px;
+
+  /* Cyber-golden hero: fondo oscuro con foco dorado a la derecha */
+  background-color: #030006;
+  background-image: radial-gradient(
+      600px circle at 75% 35%,
+      rgba(212, 175, 55, 0.12),
+      transparent 18%
+    ),
+    radial-gradient(
+      420px circle at 20% 50%,
+      rgba(0, 0, 0, 0.35),
+      transparent 20%
+    );
+  background-repeat: no-repeat;
     overflow: hidden;
-  }
+    padding: 2rem 1rem;
+    color: white;
+}
 
-  .slider::before{
-    content: "The bests";
+.slider::before {
+    content: "Tambien habilidades";
     position: absolute;
-    bottom: 30px;
-    left: 0;
+    bottom: 40px;
+    left: 20px;
     transform: rotate(-15deg);
-  }
+    font-weight: bold;
+    font-size: 4vw;
+    -webkit-text-stroke: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
 
-  .slider__title {
-    font-weight: bolder;
-    font-size: 9vw;
-    text-align: center;
-    -webkit-text-stroke: 2px;
-    /* border: 1px solid blue; */
-  }
-
-  .slider__content,
-  .slider2__content {
-    display: grid;
-    grid-template-columns: repeat(10, minmax(120px, 1fr));
-    gap: 15px;
-    width: auto;
-    height: 20vh;
-    border: 1px solid red;
-    animation: slider 5s linear infinite both;
-    position: relative;
-  }
-
-  .slider2__content{
+.slider__content,
+.slider2__content {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    width: max-content;
+    height: 22vh;
+    min-height: 180px;
+    animation: slideInfinite 22s linear infinite;
     position: absolute;
-    bottom: 62px;
-    left: 240%;
-    animation: slider2 5s linear 3.7s infinite both;
-  }
+    will-change: transform;
+}
 
-  .slider__card,
-  .slider2__card {
-    width: 100%;
+.slider__content {
+    top: 120px;
+    left: 0;
+}
+
+.slider2__content {
+    bottom: 50px;
+    left: 0;
+    animation: slideInfiniteReverse 24s linear infinite;
+}
+
+.slider__card,
+.slider2__card {
+    width: 140px;
+    height: 100%;
+    flex-shrink: 0;
     /* border: 1px solid green; */
-    padding: 5px;
+    padding: 8px;
     position: relative;
-    background-color: #f8ece2;
-    background-image: url(https://images.unsplash.com/photo-1558293842-c0fd3db86157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=722&q=80);
-    background-position: 0 0;
+    background-position: center top;
     background-repeat: no-repeat;
     background-size: 100% 70%;
     background-origin: content-box;
-  }
+    transition: transform 0.3s ease;
+    filter: drop-shadow(4px 4px 10px rgba(0, 238, 255));
+}
 
-  .slider__card::before,
-  .slider2__card::before {
-    content: "@LaloGarcia";
-    position: absolute;
-    top: 95px;
-    left: 30px;
-    font-size: 3.5vw;
-  }
+.slider__card:hover,
+.slider2__card:hover {
+    animation-play-state: paused;
+}
 
-  .slider__card:nth-child(odd),
-  .slider2__card:nth-child(odd){
+.slider__card:nth-child(odd),
+.slider2__card:nth-child(odd) {
     transform: rotate(3deg);
-  }
+}
 
-  .slider__card:nth-child(even),
-  .slider2__card:nth-child(even){
+.slider__card:nth-child(even),
+.slider2__card:nth-child(even) {
     transform: rotate(-3deg);
-  }
+}
 
-  @keyframes slider {
-    0%{
-      transform: translateX(0);
-    }
-    100%{
-      transform: translateX(-100%);
-    }
-  }
+.slider__card:nth-child(odd):hover,
+.slider2__card:nth-child(odd):hover {
+    transform: rotate(3deg) scale(1.05);
+}
 
-  @keyframes slider2 {
-    0%{
-      transform: translateX(0);
+.slider__card:nth-child(even):hover,
+.slider2__card:nth-child(even):hover {
+    transform: rotate(-3deg) scale(1.05);
+}
+
+@keyframes slideInfinite {
+    0% {
+        transform: translateX(0);
     }
-    100%{
-      transform: translateX(-100%);
+    100% {
+        transform: translateX(-50%);
     }
-  }
+}
+
+@keyframes slideInfiniteReverse {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .slider {
+        height: 70vh;
+        min-height: 600px;
+        gap: 3rem;
+        padding: 3rem 2rem;
+    }
+    
+    .slider::before {
+        bottom: 60px;
+        left: 40px;
+        font-size: 3vw;
+    }
+    
+    .slider__title {
+        font-size: 6vw;
+        margin-bottom: 2rem;
+    }
+      .slider__content,
+    .slider2__content {
+        gap: 25px;
+        height: 25vh;
+        min-height: 200px;
+    }
+    
+    .slider__content {
+        animation: slideInfinite 25s linear infinite;
+        top: 140px;
+    }
+    
+    .slider2__content {
+        bottom: 100px;
+        animation: slideInfiniteReverse 27s linear infinite;
+    }
+    
+    .slider__card,
+    .slider2__card {
+        width: 160px;
+        padding: 12px;
+        border-radius: 12px;
+    }
+    
+    .slider__card::before,
+    .slider2__card::before {
+        font-size: 2.5vw;
+        bottom: 16px;
+        left: 16px;
+        right: 16px;
+        padding: 10px 6px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .slider {
+        height: 75vh;
+        min-height: 650px;
+        gap: 4rem;
+        padding: 4rem 3rem;
+    }
+    
+    .slider::before {
+        bottom: 80px;
+        left: 60px;
+        font-size: 2.5rem;
+    }
+    
+    .slider__title {
+        font-size: 4.5rem;
+        margin-bottom: 3rem;
+    }
+      .slider__content,
+    .slider2__content {
+        gap: 30px;
+        height: 28vh;
+        min-height: 220px;
+    }
+    
+    .slider__content {
+        animation: slideInfinite 28s linear infinite;
+        top: 160px;
+    }
+    
+    .slider2__content {
+        bottom: 120px;
+        animation: slideInfiniteReverse 30s linear infinite;
+    }
+    
+    .slider__card,
+    .slider2__card {
+        width: 180px;
+        padding: 16px;
+        border-radius: 16px;
+    }
+    
+    .slider__card::before,
+    .slider2__card::before {
+        font-size: 1.2rem;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        padding: 12px 8px;
+        border-radius: 8px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .slider {
+        height: 80vh;
+        min-height: 700px;
+    }
+      .slider__content,
+    .slider2__content {
+        gap: 35px;
+        height: 30vh;
+        min-height: 240px;
+    }
+    
+    .slider__content {
+        animation: slideInfinite 30s linear infinite;
+        top: 180px;
+    }
+    
+    .slider2__content {
+        bottom: 140px;
+        animation: slideInfiniteReverse 32s linear infinite;
+    }
+    
+    .slider__card,
+    .slider2__card {
+        width: 200px;
+    }
+    
+    .slider__card::before,
+    .slider2__card::before {
+        font-size: 1.3rem;
+    }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+    .slider__content,
+    .slider2__content {
+        animation: none;
+    }
+    
+    .slider__card,
+    .slider2__card {
+        transition: none;
+    }
+}
 
 

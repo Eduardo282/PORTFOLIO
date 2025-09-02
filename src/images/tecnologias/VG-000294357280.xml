@@ -1,0 +1,359 @@
+// ============================================
+// CONTPAQ SDK CONNECTOR - SISTEMA DE ALERTAS
+// ============================================
+
+class ContPaqAlertsSystem {
+    constructor(config) {
+        this.config = {
+            contpaqPath: config.contpaqPath || 'C:\\Compac\\Empresas\\',
+            empresa: config.empresa,
+            usuario: config.usuario,
+            password: config.password,
+            alertsWebhook: config.alertsWebhook,
+            notificationChannels: config.notificationChannels || []
+        };
+        
+        this.alertRules = new Map();
+        this.historicalData = new Map();
+        this.initializeSDK();
+    }
+
+    // ==========================================
+    // INICIALIZACIÓN SDK CONTPAQ
+    // ==========================================
+    async initializeSDK() {
+        try {
+            // Cargar SDK ContPaq (requiere el SDK nativo instalado)
+            const ffi = require('ffi-napi');
+            
+            this.sdk = ffi.Library('MGWServicios.dll', {
+                // Funciones principales del SDK
+                'fSetNombrePAQ': ['int', ['string']],
+                'fInicioSesionSDK': ['int', ['string', 'string']],
+                'fAbreEmpresa': ['int', ['string']],
+                'fCierraEmpresa': ['int', []],
+                'fTerminaSDK': ['int', []],
+                
+                // Contabilidad
+                'fLeeDatosCtaPol': ['int', ['string', 'int', 'int', 'pointer']],
+                'fRegSaldosCta': ['int', ['string', 'int', 'pointer']],
+                
+                // Bancos
+                'fRegMovtoBanco': ['int', ['int', 'int', 'pointer']],
+                'fBuscaBanco': ['int', ['string']],
+                
+                // Comercial
+                'fBuscaProducto': ['int', ['string']],
+                'fRegExistencia': ['int', ['string', 'string', 'pointer']],
+                'fRegVenta': ['int', ['int', 'pointer']],
+                
+                // Nóminas
+                'fBuscaEmpleado': ['int', ['string']],
+                'fRegEmpleado': ['int', ['int', 'pointer']]
+            });
+            
+            await this.conectarContPaq();
+            console.log('✅ ContPaq SDK inicializado correctamente');
+            
+        } catch (error) {
+            console.error('❌ Error inicializando SDK:', error);
+        }
+    }
+
+    async conectarContPaq() {
+        // Conectar a ContPaq
+        let result = this.sdk.fSetNombrePAQ('CONTPAQ');
+        if (result !== 0) throw new Error(`Error setting PAQ name: ${result}`);
+        
+        result = this.sdk.fInicioSesionSDK(this.config.usuario, this.config.password);
+        if (result !== 0) throw new Error(`Error inicio sesión: ${result}`);
+        
+        result = this.sdk.fAbreEmpresa(this.config.empresa);
+        if (result !== 0) throw new Error(`Error abriendo empresa: ${result}`);
+    }
+
+    // ==========================================
+    // EXTRACCIÓN DE DATOS PARA ALERTAS
+    // ==========================================
+    
+    async obtenerFlujoCaja() {
+        try {
+            // Obtener saldos de cuentas bancarias
+            const cuentasBanco = await this.obtenerCuentasBanco();
+            let saldoTotal = 0;
+            
+            for (const cuenta of cuentasBanco) {
+                const buffer = Buffer.alloc(1024);
+                const result = this.sdk.fRegMovtoBanco(cuenta.id, 1, buffer);
+                if (result === 0) {
+                    const saldo = this.parseBankData(buffer);
+                    saldoTotal += saldo.amount;
+                }
+            }
+            
+            // Calcular ingresos pendientes (facturas por cobrar)
+            const facturasPendientes = await this.obtenerFacturasPendientes();
+            const ingresosPendientes = facturasPendientes.reduce((sum, f) => sum + f.total, 0);
+            
+            // Calcular egresos pendientes (cuentas por pagar)
+            const cuentasPagar = await this.obtenerCuentasPorPagar();
+            const egresosPendientes = cuentasPagar.reduce((sum, c) => sum + c.monto, 0);
+            
+            // Proyección usando IA
+            const proyeccion = this.calcularProyeccionFlujoCaja({
+                saldoActual: saldoTotal,
+                ingresosPendientes,
+                egresosPendientes
+            });
+            
+            return {
+                saldoActual: saldoTotal,
+                ingresosPendientes,
+                egresosPendientes,
+                proyeccionDias: proyeccion.diasHastaRojo,
+                tendencia: proyeccion.tendencia
+            };
+            
+        } catch (error) {
+            console.error('Error obteniendo flujo de caja:', error);
+            return null;
+        }
+    }
+    
+    async obtenerDatosCobranza() {
+        try {
+            const facturas = [];
+            const buffer = Buffer.alloc(2048);
+            
+            // Iterar facturas pendientes
+            let consecutivo = 1;
+            while (true) {
+                const result = this.sdk.fRegVenta(consecutivo, buffer);
+                if (result !== 0) break;
+                
+                const factura = this.parseInvoiceData(buffer);
+                if (factura.status === 'PENDIENTE') {
+                    const diasVencimiento = this.calcularDiasVencimiento(factura.fechaVencimiento);
+                    
+                    facturas.push({
+                        folio: factura.folio,
+                        cliente: factura.cliente,
+                        monto: factura.total,
+                        diasVencimiento,
+                        telefono: factura.clientePhone,
+                        email: factura.clienteEmail
+                    });
+                }
+                consecutivo++;
+            }
+            
+            return {
+                facturasPorVencer: facturas.filter(f => f.diasVencimiento <= 3),
+                clientesMorosos: facturas.filter(f => f.diasVencimiento < 0),
+                totalPorCobrar: facturas.reduce((sum, f) => sum + f.monto, 0)
+            };
+            
+        } catch (error) {
+            console.error('Error obteniendo datos cobranza:', error);
+            return null;
+        }
+    }
+    
+    async obtenerDatosInventario() {
+        try {
+            const productos = [];
+            const productosCode = await this.obtenerListaProductos();
+            
+            for (const codigo of productosCode) {
+                const result = this.sdk.fBuscaProducto(codigo);
+                if (result === 0) {
+                    const buffer = Buffer.alloc(1024);
+                    const existResult = this.sdk.fRegExistencia(codigo, '001', buffer);
+                    
+                    if (existResult === 0) {
+                        const existencia = this.parseInventoryData(buffer);
+                        const ventasHistoricas = await this.obtenerVentasProducto(codigo, 90);
+                        const ventaDiaria = this.calcularVentaPromedioDiaria(ventasHistoricas);
+                        
+                        productos.push({
+                            codigo,
+                            nombre: existencia.nombre,
+                            stockActual: existencia.existencia,
+                            ventaDiaria,
+                            diasRestantes: existencia.existencia / ventaDiaria,
+                            valor: existencia.costo * existencia.existencia,
+                            ultimaVenta: existencia.ultimaVenta
+                        });
+                    }
+                }
+            }
+            
+            return {
+                productosAgotandose: productos.filter(p => p.diasRestantes <= 5 && p.diasRestantes > 0),
+                sinMovimiento: productos.filter(p => {
+                    const diasSinVenta = (new Date() - new Date(p.ultimaVenta)) / (1000 * 60 * 60 * 24);
+                    return diasSinVenta > 60;
+                }),
+                totalInventario: productos.reduce((sum, p) => sum + p.valor, 0)
+            };
+            
+        } catch (error) {
+            console.error('Error obteniendo inventario:', error);
+            return null;
+        }
+    }
+
+    // ==========================================
+    // SISTEMA DE ALERTAS INTELIGENTES
+    // ==========================================
+    
+    async generarAlertas() {
+        const alertas = [];
+        
+        // Alerta de flujo de caja
+        const flujoCaja = await this.obtenerFlujoCaja();
+        if (flujoCaja && flujoCaja.proyeccionDias <= 15) {
+            alertas.push({
+                id: `flujo_${Date.now()}`,
+                tipo: flujoCaja.proyeccionDias <= 7 ? 'critica' : 'urgente',
+                modulo: 'Bancos',
+                titulo: '⚠️ ALERTA: Flujo de Efectivo Crítico',
+                mensaje: `Su flujo de efectivo estará en ROJO en ${flujoCaja.proyeccionDias} días`,
+                datos: flujoCaja,
+                acciones: [
+                    'acelerar_cobranza',
+                    'solicitar_credito',
+                    'diferir_pagos'
+                ],
+                prioridad: flujoCaja.proyeccionDias <= 7 ? 1 : 2,
+                timestamp: new Date()
+            });
+        }
+        
+        // Alertas de cobranza
+        const cobranza = await this.obtenerDatosCobranza();
+        if (cobranza && cobranza.facturasPorVencer.length > 0) {
+            const totalVencer = cobranza.facturasPorVencer.reduce((sum, f) => sum + f.monto, 0);
+            
+            alertas.push({
+                id: `cobranza_${Date.now()}`,
+                tipo: 'urgente',
+                modulo: 'Facturación',
+                titulo: '💰 Facturas por Vencer',
+                mensaje: `$${totalVencer.toLocaleString()} en facturas vencen en las próximas 72 horas`,
+                datos: cobranza,
+                acciones: [
+                    'llamar_clientes',
+                    'whatsapp_recordatorio',
+                    'descuento_pronto_pago'
+                ],
+                prioridad: 2,
+                timestamp: new Date()
+            });
+        }
+        
+        // Alertas de inventario
+        const inventario = await this.obtenerDatosInventario();
+        if (inventario && inventario.productosAgotandose.length > 0) {
+            for (const producto of inventario.productosAgotandose) {
+                if (producto.diasRestantes <= 3) {
+                    alertas.push({
+                        id: `inventario_${producto.codigo}_${Date.now()}`,
+                        tipo: producto.diasRestantes <= 1 ? 'critica' : 'advertencia',
+                        modulo: 'Comercial',
+                        titulo: '📦 Producto Agotándose',
+                        mensaje: `${producto.nombre} se agotará en ${producto.diasRestantes.toFixed(1)} días`,
+                        datos: producto,
+                        acciones: [
+                            'ordenar_restock',
+                            'contactar_proveedor',
+                            'transferir_sucursal'
+                        ],
+                        prioridad: producto.diasRestantes <= 1 ? 1 : 3,
+                        timestamp: new Date()
+                    });
+                }
+            }
+        }
+        
+        // Procesar y enviar alertas
+        await this.procesarAlertas(alertas);
+        return alertas;
+    }
+    
+    // ==========================================
+    // MOTOR DE IA PREDICTIVA
+    // ==========================================
+    
+    calcularProyeccionFlujoCaja(datos) {
+        // Algoritmo predictivo simple (en producción usarías TensorFlow/ML)
+        const { saldoActual, ingresosPendientes, egresosPendientes } = datos;
+        
+        // Obtener patrones históricos
+        const patronesHistoricos = this.obtenerPatronesFlujoCaja();
+        
+        // Calcular flujo neto proyectado
+        const flujoNeto = saldoActual + (ingresosPendientes * 0.7) - (egresosPendientes * 0.9);
+        
+        // Calcular días hasta problema
+        const gastoPromedioDiario = this.calcularGastoPromedioDiario();
+        const diasHastaRojo = Math.floor(flujoNeto / gastoPromedioDiario);
+        
+        return {
+            diasHastaRojo: Math.max(diasHastaRojo, 0),
+            tendencia: flujoNeto > 0 ? 'positiva' : 'negativa',
+            confianza: 0.87 // 87% de confianza en la predicción
+        };
+    }
+    
+    // ==========================================
+    // SISTEMA DE NOTIFICACIONES
+    // ==========================================
+    
+    async procesarAlertas(alertas) {
+        // Filtrar alertas duplicadas
+        const alertasUnicas = this.filtrarAlertasDuplicadas(alertas);
+        
+        // Ordenar por prioridad
+        alertasUnicas.sort((a, b) => a.prioridad - b.prioridad);
+        
+        // Enviar notificaciones
+        for (const alerta of alertasUnicas) {
+            await this.enviarNotificacion(alerta);
+        }
+        
+        // Guardar en log
+        await this.guardarAlertasLog(alertasUnicas);
+    }
+    
+    async enviarNotificacion(alerta) {
+        try {
+            // Dashboard en tiempo real
+            if (this.config.notificationChannels.includes('dashboard')) {
+                await this.enviarADashboard(alerta);
+            }
+            
+            // Email
+            if (this.config.notificationChannels.includes('email')) {
+                await this.enviarEmail(alerta);
+            }
+            
+            // WhatsApp Business API
+            if (this.config.notificationChannels.includes('whatsapp')) {
+                await this.enviarWhatsApp(alerta);
+            }
+            
+            // Microsoft Teams
+            if (this.config.notificationChannels.includes('teams')) {
+                await this.enviarTeams(alerta);
+            }
+            
+            // SMS
+            if (this.config.notificationChannels.includes('sms')) {
+                await this.enviarSMS(alerta);
+            }
+            
+        } catch (error) {
+            console.error('Error enviando notificación:', error);
+        }
+    }

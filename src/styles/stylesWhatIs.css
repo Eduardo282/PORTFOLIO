@@ -1,64 +1,356 @@
-.whatIs{
-    margin: -200px 0 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 65vh;
-    position: relative;
-    overflow: hidden;
-    /* border: 1px solid red; */
-    z-index: 97;
+.whatIs {
+  margin: -200px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 65vh;
+  min-height: 500px;
+  position: relative;
+  overflow: hidden;
+  /* border: 1px solid red; */
+  z-index: 10; /* reduced from 998 to allow header to appear above */
+  padding: 2rem 1rem;
+
+  /* Cyber-golden hero: fondo oscuro con foco dorado a la derecha */
+  background-color: #030006;
+  background-image: radial-gradient(
+      600px circle at 75% 35%,
+      rgba(212, 175, 55, 0.12),
+      transparent 18%
+    ),
+    radial-gradient(
+      420px circle at 20% 50%,
+      rgba(0, 0, 0, 0.35),
+      transparent 20%
+    );
+  background-repeat: no-repeat;
+}
+
+.whatIs__info {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  min-height: 320px;
+  border-radius: 20px; /* changed from circular to rounded rectangle */
+  box-shadow: 0 0 40px rgb(0, 0, 0) inset;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* left aligned to match image on left */
+  gap: 1rem;
+  padding: 3.5rem 2.25rem 3.5rem 2.25rem; /* leave space on left for the floating image */
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  backdrop-filter: blur(6px) saturate(140%);
+}
+
+.whatIs__info:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7),
+    0 0 80px rgba(0, 255, 255, 0.04) inset;
+}
+/* Remove global rotate on child elements to keep text readable */
+.whatIs__info * {
+  transform: none;
+}
+
+.whatIs__title {
+  width: 100%;
+  max-width: 580px;
+  text-transform: none;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+  color: #e6fcff; /* light cyan text for contrast */
+  text-align: left;
+  -webkit-text-stroke: 0.6px rgba(0, 0, 0, 0.25);
+  line-height: 1.05;
+  margin-bottom: 0;
+}
+
+.whatIs__description {
+  width: 100%;
+  max-width: 560px;
+  font-size: clamp(0.95rem, 2.6vw, 1.1rem);
+  text-align: left;
+  font-weight: 600;
+  color: rgba(230, 245, 255, 0.9);
+  line-height: 1.45;
+  margin-top: 0.35rem;
+  text-wrap: balance;
+}
+
+/* Button/link style */
+.whatIs__see-more {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 10px 16px;
+  color: #28f2d8;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 255, 0.12),
+    rgba(0, 191, 255, 0.06)
+  );
+  border: 2px solid rgba(0, 255, 255, 0.18);
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 6px 18px rgba(0, 191, 255, 0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.whatIs__see-more:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0, 191, 255, 0.08);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 255, 0.18),
+    rgba(0, 191, 255, 0.09)
+  );
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .whatIs__info {
+    padding: 4rem 3rem 4rem 9rem;
+  }
+  .whatIs__imgContain {
+    width: 200px;
+    height: 200px;
+    left: 2rem;
+  }
+  .whatIs__title {
+    font-size: 2.8rem;
+  }
+  .whatIs__description {
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .whatIs__info {
+    padding: 5rem 4rem 5rem 11rem;
+  }
+  .whatIs__imgContain {
+    width: 240px;
+    height: 240px;
+    left: 3rem;
+  }
+  .whatIs__title {
+    font-size: 3.5rem;
+  }
+  .whatIs__description {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .whatIs {
+    height: 80vh;
+    min-height: 700px;
+    margin: -80px 0 0 0;
+    padding: 5rem 4rem;
   }
 
   .whatIs__info {
-    position: relative;
-    width: 90%;
-    height: 45vh;
-    border-radius: 50%;
-    background-color: #ffd778;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .whatIs__imgContain {
-    position: absolute;
-    width: 160%;
-    height: 160%;
-    border-radius: 50%;
-    /* border: 1px solid rgb(0, 64, 255); */
-  }
-
-  .whatIs__img {
-    height: 100%;
-    border-radius: inherit;
-    /* border: 1px solid rgb(115, 0, 255); */
-    filter: drop-shadow(0 0 5px rgb(255, 255, 255));
-  }
-
-  .whatIs__info * {
-    transform: rotate(-5deg);
+    width: 60%;
+    max-width: 800px;
+    height: 60vh;
+    min-height: 500px;
+    gap: 2.5rem;
   }
 
   .whatIs__title {
-    width: 30%;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 7.5vw;
-    text-align: center;
-    -webkit-text-stroke: 1.5px;
-    /* border: 1px solid red; */
+    font-size: 4rem;
+    width: 50%;
   }
 
   .whatIs__description {
+    font-size: 1.6rem;
     width: 65%;
-    font-size: 3vw;
-    text-align: center;
-    font-weight: bold;
-    -webkit-text-stroke: 0.05px;
-    /* border: 1px solid blue; */
+    max-width: 450px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .whatIs {
+    height: 85vh;
+    min-height: 750px;
+    margin: -60px 0 0 0;
   }
 
+  .whatIs__info {
+    width: 50%;
+    max-width: 900px;
+    height: 65vh;
+    min-height: 550px;
+    gap: 3rem;
+  }
+
+  .whatIs__title {
+    font-size: 4.5rem;
+    width: 45%;
+  }
+
+  .whatIs__description {
+    font-size: 1.8rem;
+    width: 60%;
+    max-width: 500px;
+  }
+}
+
+/* --- Animated lights and neon accents for 'whatIs' --- */
+
+/* moving gradient overlay for background color shifts */
+/* .whatIs::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    120deg,
+    rgba(212, 175, 55, 0.12),
+    rgba(212, 175, 55, 0.12),
+    rgba(212, 175, 55, 0.12),
+  );
+  pointer-events: none;
+  z-index: 90;
+  animation: whatis-bg-move 8s linear infinite;
+  opacity: 0.9;
+} */
+
+@keyframes whatis-bg-move {
+  0% {
+    transform: translateX(-10%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+/* soft vertical neon beams at the sides */
+.whatIs::after {
+  /* removed the dark side overlays to eliminate the visible black bars */
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 89;
+}
+
+/* Shimmer animated rim for the card */
+.whatIs__info::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #28f2d850 30%,
+    rgba(212, 175, 55, 0.122) 50%,
+    #28f2d870 70%,
+    transparent 100%
+  );
+  filter: blur(8px);
+  z-index: 96;
+  pointer-events: none;
+  opacity: 0.95;
+  background-size: 200% 100%;
+  animation: shimmer 4s linear infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: -200% 0%;
+  }
+}
+
+/* Diagonal moving light streaks (subtle) */
+.whatIs__info::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background-image: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 0.122) 0%,
+    rgba(0, 0, 0, 0.122) 50%,
+    rgba(0, 0, 0, 0.122) 100%
+  );
+  transform: rotate(-12deg);
+  filter: blur(10px);
+  opacity: 0.3;
+  z-index: 92;
+  pointer-events: none;
+  animation: streaks 6s linear infinite;
+}
+
+@keyframes streaks {
+  0% {
+    transform: translateX(-30%) rotate(-12deg);
+  }
+  50% {
+    transform: translateX(30%) rotate(-12deg);
+  }
+  100% {
+    transform: translateX(-30%) rotate(-12deg);
+  }
+}
+
+/* image glow enhancement */
+.whatIs__imgContain {
+  z-index: 100;
+}
+.whatIs__img {
+  box-shadow: 0 18px 40px rgba(212, 175, 55, 0.122),
+    0 6px 18px rgba(212, 175, 55, 0.122);
+}
+
+/* CTA neon pulse */
+.whatIs__see-more {
+  position: relative;
+  z-index: 101;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.122),
+    0 0 18px rgba(212, 175, 55, 0.122) inset;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  animation: cta-pulse 3s ease-in-out infinite;
+}
+
+@keyframes cta-pulse {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.122),
+      0 0 6px rgba(212, 175, 55, 0.122) inset;
+  }
+  50% {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 18px 40px rgba(212, 175, 55, 0.122),
+      0 0 26px rgba(212, 175, 55, 0.122) inset;
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.122),
+      0 0 6px rgba(212, 175, 55, 0.122) inset;
+  }
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .whatis-bg-move,
+  .shimmer,
+  .streaks,
+  .cta-pulse,
+  .whatIs::before,
+  .whatIs__info::after,
+  .whatIs__info::before {
+    animation: none !important;
+  }
+  .whatIs__see-more {
+    animation: none !important;
+  }
+}

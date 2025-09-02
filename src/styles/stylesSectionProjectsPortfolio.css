@@ -1,45 +1,275 @@
-.gridProjects {
-    margin: -350px 0 0 0;
-    padding: 150px 10px 150px 10px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(13, auto);
-    gap: 0.625em;
-    background-image: url(https://www.clams.lol/images/bg-cork.jpg);
-  }
+/* Main section container */
+.projects-portfolio-section {
+  width: 100dvw;
+  height: auto;
+  display: grid;
+  /* grid-template-columns: repeat(2, 200px); */ /* Commented out fixed columns */
+  grid-template-columns: repeat(2, 180px); /* Responsive columns */
+  grid-auto-rows: 300px; /* Explicitly set row height */
+  gap: 1em;
+  margin: -150px 0 0 0;
+  padding: 4rem 0 0 0;
 
-  .gridProjects__itemDescription span {
-    /* border: 1px solid red; */
-    font-weight: bold;
-    font-size: 10vw;
+  /* Cyber-golden hero: fondo oscuro con foco dorado a la derecha */
+  background-color: #030006;
+  background-image: radial-gradient(
+      600px circle at 75% 35%,
+      rgba(212, 175, 55, 0.12),
+      transparent 18%
+    ),
+    radial-gradient(
+      420px circle at 20% 50%,
+      rgba(0, 0, 0, 0.35),
+      transparent 20%
+    );
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 5; /* reduced from 99 to allow header to appear above */
+}
+
+/* Quote Box Styles */
+.quote-box-description {
+  width: 90%; /* Max width for the quote box */
+  grid-column: 1 / 3; /* Span all columns in the grid */
+  /* grid-row: 1 / 2; */ /* Let it flow naturally or set specific row if needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #16181C; 
+  border-radius: 15px;
+  text-align: center;
+  color: #e0e0e0; /* Light text color */
+  font-family: "Exospace", serif; /* Elegant serif font */
+  box-shadow: 10px 10px 20px #28f2d8;
+  hyphens: none;
+  padding: 2em;
+  margin: auto;
+}
+
+.quote-text {
+  font-size: 1.5em; /* Size of the quote text */
+  font-style: italic;
+  line-height: 1.4;
+  color: #f0f0f0; /* Slightly brighter for the main quote */
+}
+
+/* Ensure .hologram-card-container does not have excessive margins that interfere with grid layout */
+.hologram-card-container {
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.hologram-card-container[data-project-id="5"] {
+  grid-column: 1 / -1; /* Each card takes one column */
+  grid-row: 4 / 5;
+}
+
+/* La Tarjeta Principal (la que se moverá) */
+.hologram-card {
+  width: 100%;
+  height: 100%;
+  padding: 0.625em;
+  position: relative;
+  background-color: #28f2d810;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 15px #28f2d840, 0 0 30px #28f2d830;
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  font-family: "Exospace", sans-serif; /* Aplicando la fuente aquí */
+}
+
+/* Capa de Brillo Holográfico (sigue al cursor) */
+.hologram-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle 250px at var(--mouse-x) var(--mouse-y),
+    #28f2d830,
+    transparent 70%
+  );
+  clip-path: polygon(
+    0% 5%,
+    5% 0%,
+    95% 0%,
+    100% 5%,
+    100% 95%,
+    95% 100%,
+    5% 100%,
+    0% 95%
+  );
+}
+
+/* El Cuerpo de la Placa (con las scanlines) */
+.hologram-card-body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #28f2d815;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #28f2d805 0,
+    #28f2d805 3px,
+    transparent 3px,
+    transparent 6px
+  );
+  clip-path: polygon(
+    0% 5%,
+    5% 0%,
+    95% 0%,
+    100% 5%,
+    100% 95%,
+    95% 100%,
+    5% 100%,
+    0% 95%
+  );
+  box-shadow: inset 0 0 10px #28f2d830;
+}
+
+/* Contenido de la Placa */
+.plaque-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido, ajusta si es necesario */
+  align-items: center;
+  gap: 5px; /* Espacio entre elementos de contenido */
+  transform: translateZ(60px); /* Empuja el contenido hacia el espectador */
+  text-align: center; /* Centra el texto */
+  color: #e0e0e0; /* Color de texto base */
+}
+
+/* Estilos para el contenido del proyecto dentro de la placa holográfica */
+/* Deberás ajustar estos estilos para que se adapten a tu diseño */
+.hologram-project-image {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+  filter: drop-shadow(0 0 8px #28f2d850);
+}
+
+.hologram-project-title {
+  width: 100%;
+  height: 100%;
+  font-size: 4vw; /* Ajusta el tamaño */
+  font-weight: 700;
+  letter-spacing: 0.125em; /* Ajusta el espaciado */
+  text-shadow: 0 0 5px #fff, 0 0 10px #28f2d870;
+}
+
+.hologram-project-description {
+  width: 100%;
+  height: 100%;
+  font-size: 0.9em; /* Ajusta el tamaño */
+  line-height: 1.4;
+  overflow-y: auto; /* Scroll para descripciones largas */
+}
+
+.hologram-project-link {
+  width: 100%;
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #28f2d820;
+  border: 1px solid #28f2d870;
+  color: #e0e0e0;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  font-size: 0.9em;
+}
+
+.hologram-project-link:hover {
+  background-color: #28f2d840;
+  box-shadow: 0 0 10px #28f2d850;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .gridProjects {
+    padding: 5rem 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto repeat(4, minmax(300px, auto));
+    gap: 2rem;
   }
 
   .gridProjects__itemDescription {
-    padding: 5%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 3.5vw;
-    grid-column: 1 / 3;
-    /* border: 1px solid red; */
+    grid-column: 1 / 4;
+    font-size: 2.5vw;
+    padding: 3rem;
+  }
+
+  .gridProjects__itemDescription span {
+    font-size: 5vw;
   }
 
   .gridProjects__itemProject {
-    display: flex;
-    flex-direction: column;
-    padding: 8%;
-    font-size: 3.7vw;
-    font-weight: bold;
-    text-align: center;
-    -webkit-text-stroke: 0.06em;
-    border-radius: 0.625em;
-    background: #f8ece2;
+    font-size: 2.5vw;
+    padding: 2rem;
+    min-height: 300px;
   }
 
   .gridProjects__itemProject--project5 {
-    grid-area: 4 / 1 / 6 / 3;
+    grid-area: 3 / 1 / 5 / 3;
+    min-height: 400px;
   }
-  .gridProjects__titleProject {
-    text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .gridProjects {
+    padding: 6rem 4rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto repeat(3, minmax(350px, auto));
+    gap: 2.5rem;
   }
 
+  .gridProjects__itemDescription {
+    grid-column: 1 / 5;
+    font-size: 2rem;
+    padding: 4rem;
+  }
+
+  .gridProjects__itemDescription span {
+    font-size: 3.5rem;
+  }
+
+  .gridProjects__itemProject {
+    font-size: 1.8rem;
+    padding: 2.5rem;
+    min-height: 350px;
+  }
+
+  .gridProjects__itemProject--project5 {
+    grid-area: 2 / 1 / 4 / 3;
+    min-height: 450px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .gridProjects {
+    padding: 8rem 5rem;
+    max-width: 1400px;
+  }
+
+  .gridProjects__itemDescription {
+    font-size: 1.5rem;
+  }
+
+  .gridProjects__itemDescription span {
+    font-size: 3rem;
+  }
+
+  .gridProjects__itemProject {
+    font-size: 1.5rem;
+  }
+}

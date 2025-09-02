@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/misPracticas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap" rel="stylesheet">
+    <script src="js/misPracticas.js" defer></script>
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js" defer></script>
+    <script src="https://kit.fontawesome.com/86bebd3865.js" crossorigin="anonymous" defer></script>
+    <title>SASS</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <!-- Header -->
+        <div class="header__logo">
+
+            <div class="header__link">
+                <a href="#" class="header__a">
+                    <span class="header__span"><i class='bx bxl-facebook'></i></span>acebook
+                </a>
+            </div>
+
+            <div class="header__icons">
+                <i class='bx bxs-bell-ring'></i>
+                <i class='bx bx-mail-send'></i>
+                <i class='bx bxs-videos'></i>
+            </div>
+
+        </div>
+
+
+        <input type="text" placeholder="Search" class="header__input">
+        <div class="header__lupa">
+            <i class='bx bx-search'></i>
+        </div>
+        <span class="header__spany">
+            <img class="header__imagen" src="img/ojitos.jfif" alt="mujer">
+        </span>
+
+        <!-- Menu de Navegacion -->
+        <nav class="navegacion">
+            <a class="navegacion__links" href="#"><i class='bx bx-news'></i>Ultimas noticias</a>
+            <a class="navegacion__links" href="#"><i class='bx bxs-user-plus'></i>Amigos</a>
+            <a class="navegacion__links" href="#"><i class='bx bx-group'></i>Grupos</a>
+            <a class="navegacion__links" href="#"><i class='bx bxl-shopify'></i>Tienda online</a>
+            <a class="navegacion__links" href="#"><i class='bx bx-tv'></i>Ver</a>
+            <a class="navegacion__links" href="#">Mas...</a>
+        </nav>
+
+
+        <section class="informacionPerfil">
+
+            <div class="informacionPerfil__enlaces">
+                <img class="informacionPerfil__imagen" src="img/man.jfif" alt="">
+                <div class="informacionPerfil__info">
+                    <h3 class="informacionPerfil__nombre">Eduardo Francisco</h3>
+                    <h3 class="informacionPerfil__ver">Ver tu perfil</h3>
+                </div>
+                <button class="informacionPerfil__btn">
+                    <span class="informacionPerfil__interruptorDarkMode"></span>
+                    <span class="informacionPerfil__sun"><i class="fas fa-sun"></i></span>
+                    <span class="informacionPerfil__moon"><i class="fas fa-moon"></i></span>
+                </button>
+                <div class="informacionPerfil__separacion"></div>
+            </div>
+
+            <div class="informacionPerfil__enlaces">
+                <i class="fas fa-exclamation-circle informacionPerfil__imagenIcono"></i>
+                <div class="informacionPerfil__info">
+                    <h3 class="informacionPerfil__opiniones">Opiniones</h3>
+                    <h3 class="informacionPerfil__prueba">Probar otros diseños u obtener ayuda e improvisar</h3>
+                </div>
+                <div class="informacionPerfil__separacion"></div>
+            </div>
+
+            <div class="informacionPerfil__enlaces">
+                <i class="fas fa-cogs informacionPerfil__Icono"></i>
+                <div class="informacionPerfil__flechas">
+                    <h3 class="informacionPerfil__ajustes">Ajustes y privacidad</h3>
+                    <i class="fas fa-angle-right informacionPerfil__Icono1"></i>
+                </div>
+            </div>
+
+            <div class="informacionPerfil__enlaces">
+                <i class="fas fa-question-circle informacionPerfil__Icono"></i>
+                <div class="informacionPerfil__flechas">
+                    <h3 class="informacionPerfil__ayuda">Ayuda y soporte</h3>
+                    <i class="fas fa-angle-right informacionPerfil__Icono1"></i>
+                </div>
+            </div>
+
+
+
+            <div class="informacionPerfil__enlaces">
+
+                <i class="fas fa-moon informacionPerfil__Icono"></i>
+                <div class="informacionPerfil__flechas">
+                    <h3 class="informacionPerfil__access">Muestra y accesibilidad</h3>
+                    <i class="fas fa-angle-right informacionPerfil__Icono1"></i>
+                </div>
+            </div>
+
+            <div class="informacionPerfil__enlaces">
+                <i class="fas fa-door-open informacionPerfil__Icono"></i>
+                <div class="informacionPerfil__flechas">
+                    <h3 class="informacionPerfil__sesionCerrar">Cerrar sesion</h3>
+                    <i class="fas fa-angle-right informacionPerfil__Icono1"></i>
+                </div>
+            </div>
+
+        </section>
+
+    </header>
+
+    <div class="barraSeparadora"></div>
+
+    <!-- Extras -->
+    <aside class="extras">
+        <h2 class="extras__subtituloAtajo">Tus atajos</h2>
+        <div class="extras__imagen"><img class="extras__img" src="img/web.jfif" alt="shortcut"> <span
+                class="extras__span">Desarrolladores Web</span></div>
+        <div class="extras__imagen"><img class="extras__img" src="img/design.jfif" alt="shortcut"> <span
+                class="extras__span">Diseñadores Web</span></div>
+        <div class="extras__imagen"><img class="extras__img" src="img/fullstack.jfif" alt="shortcut"><span
+                class="extras__span">FullStack Desarrollo</span></div>
+        <div class="extras__imagen"><img class="extras__img" src="img/experts.jfif" alt="shortcut"> <span
+                class="extras__span">Web Expertos</span></div>
+    </aside>
+
+
+
+    <article class="principalPagina">
+
+        <!-- Contenedor Tarjetas -->
+        <div class="principalPagina__contenedorTarjetas">
+            <div class="principalPagina__tarjeta"><span class="principalPagina__span">Lalo Story</span></div>
+            <div class="principalPagina__tarjeta"><span class="principalPagina__span">Amandine</span></div>
+            <div class="principalPagina__tarjeta"><span class="principalPagina__span">Luis</span></div>
+            <div class="principalPagina__tarjeta"><span class="principalPagina__span">Angelica</span></div>
+            <div class="principalPagina__tarjeta"><span class="principalPagina__span">Maria</span></div>
+        </div>
+
+        <!-- Perfil Principal -->
+        <div class="principalPagina__perfil">
+            <div class="principalPagina__perfil-contenido">
+                <img class="principalPagina__imagen-contenido" src="img/man.jfif" alt="man">
+
+                <div class="principalPagina__hs">
+                    <h2 class="principalPagina__nombre-contenido">Lalo Garcia</h2>
+                    <h3 class="principalPagina__nombreSub-contenido">Public</h3>
+                    <h3 class="principalPagina__question-contenido">Que piensas, lalo?</h3>
+
+                    <div class="principalPagina__barraDivisora"></div>
+
+                    <div class="principalPagina__acciones-contenido">
+                        <span class="principalPagina__spanAcciones"> <i
+                                class="fas fa-video principalPagina__iconoUno"></i>Video Live</span>
+                        <span class="principalPagina__spanAcciones"> <i
+                                class="fas fa-camera-retro principalPagina__iconoDos"></i>Foto/Video</span>
+                        <span class="principalPagina__spanAcciones"><i
+                                class="far fa-grin principalPagina__iconoTres"></i>Sentimiento/Actividad</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="principalPagina__perfil-gusto">
+
+            <div class="principalPagina__perfil-gusto-contenido">
+                <img class="principalPagina__imagen-contenido" src="img/man.jfif" alt="man">
+
+                <div class="principalPagina__hs2">
+                    <h2 class="principalPagina__nombre-contenido">Lalo Garcia</h2>
+                    <h3 class="principalPagina__fecha-contenido">20 de Julio 2021, 4:08pm</h3>
+                </div>
+
+                <div class="principalPagina__hs2Sub">
+                    <h3 class="principalPagina__descripcion-contenido">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit.
+                        In deserunt magni libero.
+                        Eum nulla maxime reprehenderit officia nam mollitia?
+                        Consequatur obcaecati ad officia molestiae amet, totam officiis. Quas, vitae repellendus!</h3>
+
+                    <div class="principalPagina__imagen2">
+                        <img class="principalPagina__imagen2-contenido" src="img/teamwork.jfif" alt="">
+                    </div>
+
+                    <div class="principalPagina__acciones2-contenido">
+                        <span class="principalPagina__span2Acciones"> <i
+                                class="fas fa-thumbs-up principalPagina__iconoOne"></i>330</span>
+                        <span class="principalPagina__span2Acciones"> <i
+                                class="fas fa-comments-dollar principalPagina__iconoTwo"></i>210</span>
+                        <span class="principalPagina__span2Acciones"><i
+                                class="fas fa-share principalPagina__iconoThree"></i>170</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="principalPagina__perfil-gusto">
+            <div class="principalPagina__perfil-gusto-contenido">
+                <img class="principalPagina__imagen-contenido" src="img/man.jfif" alt="man">
+
+                <div class="principalPagina__hs2">
+                    <h2 class="principalPagina__nombre-contenido">Lalo Garcia</h2>
+                    <h3 class="principalPagina__fecha-contenido">20 de Julio 2021, 4:08pm</h3>
+                </div>
+
+                <div class="principalPagina__hs2Sub">
+                    <h3 class="principalPagina__descripcion-contenido">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit.
+                        In deserunt magni libero.
+                        Eum nulla maxime reprehenderit officia nam mollitia?
+                        Consequatur obcaecati ad officia molestiae amet, totam officiis. Quas, vitae repellendus!</h3>
+
+                    <div class="principalPagina__imagen2">
+                        <img class="principalPagina__imagen2-contenido" src="img/motivation.jfif" alt="">
+                    </div>
+
+                    <div class="principalPagina__acciones2-contenido">
+                        <span class="principalPagina__span2Acciones"> <i
+                                class="fas fa-thumbs-up principalPagina__iconoOne"></i>560</span>
+                        <span class="principalPagina__span2Acciones"> <i
+                                class="fas fa-comments-dollar principalPagina__iconoTwo"></i>402</span>
+                        <span class="principalPagina__span2Acciones"><i
+                                class="fas fa-share principalPagina__iconoThree"></i>320</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="principalPagina__perfil-gusto">
+            <div class="principalPagina__perfil-gusto-contenido">
+                <img class="principalPagina__imagen-contenido" src="img/man.jfif" alt="man">
+
+                <div class="principalPagina__hs2">
+                    <h2 class="principalPagina__nombre-contenido">Lalo Garcia</h2>
+                    <h3 class="principalPagina__fecha-contenido">20 de Julio 2021, 4:08pm</h3>
+                </div>
+
+                <div class="principalPagina__hs2Sub">
+                    <h3 class="principalPagina__descripcion-contenido">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit.
+                        In deserunt magni libero.
+                        Eum nulla maxime reprehenderit officia nam mollitia?
+                        Consequatur obcaecati ad officia molestiae amet, totam officiis. Quas, vitae repellendus!</h3>
+
+                    <div class="principalPagina__imagen2">
+                        <img class="principalPagina__imagen2-contenido" src="img/city.jfif" alt="">
+                    </div>
+
+                    <div class="principalPagina__acciones2-contenido">
+                        <span class="principalPagina__span2Acciones"> <i
+                                class="fas fa-thumbs-up principalPagina__iconoOne"></i>1,035</span>
+                        <span class="principalPagina__span2Acciones"> <i
+                                class="fas fa-comments-dollar principalPagina__iconoTwo"></i>789</span>
+                        <span class="principalPagina__span2Acciones"><i
+                                class="fas fa-share principalPagina__iconoThree"></i>990</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </article>
+
+    <aside class="interacciones">
+
+        <div class="interacciones__eventos">
+            <h2 class="interacciones__subTitle">Eventos</h2>
+
+
+            <div class="interacciones__dates">
+                <div class="interacciones__calendario">18 <span class="interacciones__span">Marzo</span></div>
+                <div class="interacciones__hs">
+                    <h3 class="interacciones__aches--1">Medio social</h3>
+                    <h4 class="interacciones__aches--2"><i class="fas fa-map-marked-alt"></i>Puebla, pue</h4>
+                    <h5 class="interacciones__aches--3">Mas...</h5>
+                </div>
+            </div>
+
+            <div class="interacciones__dates">
+                <div class="interacciones__calendario">22 <span class="interacciones__span">Junio</span></div>
+                <div class="interacciones__hs">
+                    <h3 class="interacciones__aches--1">Tienda movil</h3>
+                    <h4 class="interacciones__aches--2"><i class="fas fa-map-marked-alt"></i>Puebla, pue</h4>
+                    <h5 class="interacciones__aches--3">Mas...</h5>
+                </div>
+            </div>
+
+
+
+            <div class="interacciones__calendario-evento"></div>
+            <div class="interacciones__calendario-evento"></div>
+        </div>
+
+
+        <div class="interacciones__anuncio">
+            <h3 class="interacciones__subTitle">Anuncio</h3>
+            <div class="interacciones__imagen"><img class="interacciones__anuncioImg" src="img/ciudad.jfif" alt="">
+            </div>
+        </div>
+
+        <div class="interacciones__conversacion">
+            <h3 class="interacciones__subTitle">Conversacion</h3>
+            <div class="interacciones__contactosImg"><img class="interacciones__circuloContacto"
+                    src="img/contacto1.jfif" alt=""><span class="interacciones__span2">Juan Hernandez</span></div>
+            <div class="interacciones__contactosImg"><img class="interacciones__circuloContacto"
+                    src="img/contacto2.jfif" alt=""><span class="interacciones__span2">Luis Garcia</span></div>
+            <div class="interacciones__contactosImg"><img class="interacciones__circuloContacto"
+                    src="img/contacto3.jfif" alt=""><span class="interacciones__span2">Ramos Jackeline</span></div>
+        </div>
+
+    </aside>
+
+
+</body>
+
+</html>

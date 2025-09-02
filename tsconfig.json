@@ -1,8 +1,6 @@
 {
-"include": [
-  "**/*",
-  "src/pages/launch/[id].astro" // Add the missing file path here
-],
-"exclude": [],
-"extends": "astro/tsconfigs/base"
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {},
+  "include": ["src", "astro.config.mjs", ".astro/types.d.ts"],
+  "exclude": []
 }

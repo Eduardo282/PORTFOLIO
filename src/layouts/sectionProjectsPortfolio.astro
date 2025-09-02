@@ -1,124 +1,183 @@
 ---
-import css from "../images/css.png";
+import donas from "../images/projects/donas.png"; // Asegúrate que esta imagen es la correcta o cámbiala dinámicamente
+import arkanoid from "../images/projects/arkanoid.png";
+import ecommerce from "../images/projects/ecommerce.png";
+import plants from "../images/projects/plants.png";
+import archivos from "../images/projects/archivos.png";
+import facebook from "../images/projects/facebook.png";
+import velada from "../images/projects/velada.png";
 
-import "../styles/stylesSectionProjectsPortfolio.css"
+import "../styles/stylesSectionProjectsPortfolio.css";
+
+// Lista de tus proyectos (idealmente esto vendría de un CMS o un archivo de datos)
+// Para este ejemplo, usaré los títulos que ya tienes y una imagen genérica.
+// Deberás reemplazar 'imgSrc' con la ruta correcta a la imagen de cada proyecto.
+// Y 'description' y 'projectLink' si quieres añadirlos.
+const projects = [
+  {
+    title: "Donas para todos",
+    imgSrc: donas.src,
+    description: "Una dulce página sobre donas.",
+    projectLink: "/project/donas-para-todos",
+  },
+  {
+    title: "Arkanoid",
+    imgSrc: arkanoid.src,
+    description: "Clásico juego de Arkanoid.",
+    projectLink: "#",
+  },
+  {
+    title: "Ecommerce sencillo",
+    imgSrc: ecommerce.src,
+    description: "Tienda en línea funcional.",
+    projectLink: "#",
+  },
+  {
+    title: "Plantas para todos",
+    imgSrc: plants.src,
+    description: "Sitio web sobre plantas.",
+    projectLink: "#",
+  },
+  {
+    title: "Registro de archivos culturales",
+    imgSrc: archivos.src,
+    description: "Sistema de gestión cultural.",
+    projectLink: "#",
+    number: "5",
+  },
+  {
+    title: "Biblioteca cultural",
+    imgSrc: donas.src,
+    description: "Plataforma de biblioteca.",
+    projectLink: "#",
+  },
+  {
+    title: "Checador de empleados",
+    imgSrc: donas.src,
+    description: "Herramienta de control horario.",
+    projectLink: "#",
+  },
+  {
+    title: "Registro de asistencias",
+    imgSrc: donas.src,
+    description: "Sistema de seguimiento.",
+    projectLink: "#",
+  },
+  {
+    title: "Registro de actividades",
+    imgSrc: donas.src,
+    description: "Gestor de tareas y actividades.",
+    projectLink: "#",
+  },
+  {
+    title: "Turisteando mejorado",
+    imgSrc: donas.src,
+    description: "Plataforma de turismo.",
+    projectLink: "#",
+  },
+  {
+    title: "Replica Facebook",
+    imgSrc: facebook.src,
+    description: "Clon de la interfaz de Facebook.",
+    projectLink: "#",
+  },
+  {
+    title: "Imitacion la velada",
+    imgSrc: velada.src,
+    description: "Homenaje a un evento.",
+    projectLink: "#",
+  },
+  {
+    title: "Proximamente...",
+    imgSrc: null,
+    description: "Nuevos proyectos en camino.",
+    projectLink: "#",
+  },
+  // ... añade todos tus proyectos aquí
+];
 ---
 
-<section class="gridProjects">
-  <p class="gridProjects__itemDescription">
-    <span>All Projects</span>
-    <br />
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime explicabo quisquam
-    neque est! Vel nemo consequatur facere unde aliquam quia architecto, voluptatum
-    aliquid ab rerum. Quisquam, voluptatum. Quisquam,
-  </p>
-  <div class="gridProjects__itemProject gridProjects__itemProject--project1">
-    <div class="gridProjects__titleProject">
-      <span>Replica Facebook</span>
-      <span>1 day</span>
-    </div>
-    <div class="gridProjects__imgProject">
-      <img class="gridProjects__img" src={css.src} alt="Facebook Replica" />
-    </div>
+<section class="projects-portfolio-section">
+  <div class="quote-box-description">
+    <p class="quote-text">
+      He aqui mis proyectos a lo largo de mi carrera profesional
+    </p>
   </div>
-  <div class="gridProjects__itemProject gridProjects__itemProject--project2">
-    <div class="gridProjects__titleProject">
-      <span>Replica Facebook</span>
-      <span>1 day</span>
-    </div>
-    <div class="gridProjects__imgProject">
-      <img class="gridProjects__img" src={css.src} alt="Facebook Replica" />
-    </div>
-  </div>
-  <div class="gridProjects__itemProject gridProjects__itemProject--project3">
-    <div class="gridProjects__titleProject">
-      <span>Replica Facebook</span>
-      <span>1 day</span>
-    </div>
-    <div class="gridProjects__imgProject">
-      <img class="gridProjects__img" src={css.src} alt="Facebook Replica" />
-    </div>
-  </div>
-  <div class="gridProjects__itemProject gridProjects__itemProject--project4">
-    <div class="gridProjects__titleProject">
-      <span>Replica Facebook</span>
-      <span>1 day</span>
-    </div>
-    <div class="gridProjects__imgProject">
-      <img class="gridProjects__img" src={css.src} alt="Facebook Replica" />
-    </div>
-  </div>
-  <div class="gridProjects__itemProject gridProjects__itemProject--project5">
-    <div class="gridProjects__titleProject">
-      <span>Replica Facebook</span>
-      <span>1 day</span>
-    </div>
-    <div class="gridProjects__imgProject">
-      <img class="gridProjects__img" src={css.src} alt="Facebook Replica" />
-    </div>
-  </div>
-  <div class="gridProjects__itemProject gridProjects__itemProject--project6">
-    <div class="gridProjects__titleProject">
-      <span>Replica Facebook</span>
-      <span>1 day</span>
-    </div>
-    <div class="gridProjects__imgProject">
-      <img class="gridProjects__img" src={css.src} alt="Facebook Replica" />
-    </div>
-  </div>
-  <div class="gridProjects__itemProject gridProjects__itemProject--project7">
-    <div class="gridProjects__titleProject">
-      <span>Replica Facebook</span>
-      <span>1 day</span>
-    </div>
-    <div class="gridProjects__imgProject">
-      <img class="gridProjects__img" src={css.src} alt="Facebook Replica" />
-    </div>
-  </div>
-  <div class="gridProjects__itemProject gridProjects__itemProject--project8">
-    <div class="gridProjects__titleProject">
-      <span>Replica Facebook</span>
-      <span>1 day</span>
-    </div>
-    <div class="gridProjects__imgProject">
-      <img class="gridProjects__img" src={css.src} alt="Facebook Replica" />
-    </div>
-  </div>
-  <div class="gridProjects__itemProject gridProjects__itemProject--project9">
-    <div class="gridProjects__titleProject">
-      <span>Replica Facebook</span>
-      <span>1 day</span>
-    </div>
-    <div class="gridProjects__imgProject">
-      <img class="gridProjects__img" src={css.src} alt="Facebook Replica" />
-    </div>
-  </div>
-  <div class="gridProjects__itemProject gridProjects__itemProject--project10">
-    <div class="gridProjects__titleProject">
-      <span>Replica Facebook</span>
-      <span>1 day</span>
-    </div>
-    <div class="gridProjects__imgProject">
-      <img class="gridProjects__img" src={css.src} alt="Facebook Replica" />
-    </div>
-  </div>
-  <div class="gridProjects__itemProject gridProjects__itemProject--project11">
-    <div class="gridProjects__titleProject">
-      <span>Replica Facebook</span>
-      <span>1 day</span>
-    </div>
-    <div class="gridProjects__imgProject">
-      <img class="gridProjects__img" src={css.src} alt="Facebook Replica" />
-    </div>
-  </div>
-  <div class="gridProjects__itemProject gridProjects__itemProject--project12">
-    <div class="gridProjects__titleProject">
-      <span>Replica Facebook</span>
-      <span>1 day</span>
-    </div>
-    <div class="gridProjects__imgProject">
-      <img class="gridProjects__img" src={css.src} alt="Facebook Replica" />
-    </div>
-  </div>
+
+  {
+    projects.map((project, index) => (
+      <div
+        class="hologram-card-container"
+        data-project-id={project.number || index + 1}>
+        <div class="hologram-card">
+          <div class="hologram-card-body">
+            <div class="plaque-content">
+              {project.imgSrc && (
+                <img
+                  src={project.imgSrc}
+                  alt={project.title}
+                  class="hologram-project-image"
+                />
+              )}
+              <h3 class="hologram-project-title">{project.title}</h3>
+              {project.description && (
+                <p class="hologram-project-description">
+                  {project.description}
+                </p>
+              )}
+              {project.projectLink && project.title !== "Proximamente..." && (
+                <a
+                  href={project.projectLink}
+                  class="hologram-project-link"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Ver Proyecto
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    ))
+  }
 </section>
 
+<script>
+  const containers = document.querySelectorAll(".hologram-card-container");
+  const maxRotation = 15; // Máximo ángulo de rotación en grados
+
+  containers.forEach((container) => {
+    const card = container.querySelector(".hologram-card");
+
+    if (!card) return;
+
+    container.addEventListener("mousemove", (e: MouseEvent) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const deltaX = x - centerX;
+      const deltaY = y - centerY;
+      const rotateY = (deltaX / centerX) * maxRotation;
+      const rotateX = -(deltaY / centerY) * maxRotation;
+
+      (card as HTMLElement).style.transform =
+        `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+      (card as HTMLElement).style.setProperty("--mouse-x", `${x}px`);
+      (card as HTMLElement).style.setProperty("--mouse-y", `${y}px`);
+    });
+
+    container.addEventListener("mouseenter", () => {
+      (card as HTMLElement).style.transition = "transform 0.1s linear";
+    });
+
+    container.addEventListener("mouseleave", () => {
+      (card as HTMLElement).style.transition = "transform 0.5s ease-out";
+      (card as HTMLElement).style.transform =
+        `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      (card as HTMLElement).style.setProperty("--mouse-x", `50%`);
+      (card as HTMLElement).style.setProperty("--mouse-y", `50%`);
+    });
+  });
+</script>

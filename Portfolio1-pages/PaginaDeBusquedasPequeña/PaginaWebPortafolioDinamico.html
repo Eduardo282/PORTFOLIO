@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.4/dist/muuri.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+              <h1>Eduardo Francisco</h1>
+              <p>Desarrollador web</p>
+        </header>
+
+            <div >
+                <form class="formulario">
+                    <input type="text" placeholder="Buscar" class="busqueda" id="busqueda">
+                  </form> 
+            </div>    
+
+                <nav class="navegacion" id="navegacion">
+                    <a href="#">Todos</a>
+                    <a href="#">Naturaleza</a>
+                    <a href="#">Ciudades</a>
+                    <a href="#">Personas</a>
+                    <a href="#">Animales</a>
+                </nav>
+
+    <section class="grid" id="grid">
+
+        <div class="item" 
+        data-etiqueta="ciudad carro calle"
+        data-valor="ciudades"
+        data-descripcion="1.- lorem .">
+
+           <div class="item-contenido">
+               <img src="img/ciudad1.png" alt="imagenGrid">
+           </div>
+        </div>
+
+        <div class="item"
+        data-etiqueta="leon mamifero felino"
+        data-valor="animales"
+        data-descripcion="1.- lorem officia .">
+
+           <div class="item-contenido">
+               <img src="img/animal1.png" alt="imagenGrid">
+           </div>
+        </div>
+
+        <div class="item"
+        data-etiqueta="panda oso bambu"
+        data-valor="animales"
+        data-descripcion="1.- lorem officia deserunt .">
+
+           <div class="item-contenido">
+               <img src="img/animal2.png" alt="imagenGrid">
+           </div>
+        </div>
+
+        <div class="item"
+        data-etiqueta="ciudad carro calle"
+        data-valor="ciudades"
+        data-descripcion="1.- lorem officia deserunt mollit .">
+
+           <div class="item-contenido">
+               <img src="img/ciudad2.png" alt="imagenGrid">
+           </div>
+        </div>
+
+        <div class="item"
+        data-etiqueta="hojas planta verde"
+        data-valor="naturaleza"
+        data-descripcion="1.- lorem officia deserunt mollit anim .">
+
+           <div class="item-contenido">
+               <img src="img/naturaleza1.png" alt="imagenGrid">
+           </div>
+        </div>
+
+        <div class="item"
+        data-etiqueta="montaña agua cielo"
+        data-valor="naturaleza"
+        data-descripcion="1.- lorem officia deserunt mollit anim id est .">
+
+           <div class="item-contenido">
+               <img src="img/paisaje1.png" alt="imagenGrid">
+           </div>
+        </div>
+
+        <div class="item"
+        data-etiqueta="montaña nubes cielo"
+        data-valor="naturaleza"
+        data-descripcion="1.- lorem officia deserunt mollit anim id est laborum.">
+
+           <div class="item-contenido">
+               <img src="img/paisaje2.png" alt="imagenGrid">
+           </div>
+        </div>
+
+        <div class="item"
+        data-etiqueta="mujer humano personas pelirroja"
+        data-valor="personas"
+        data-descripcion="1.- lore.">
+
+           <div class="item-contenido">
+               <img src="img/persona1.png" alt="imagenGrid">
+           </div>
+        </div>
+
+        <div class="item"
+        data-etiqueta="mujer humano pelirroja personas"
+        data-valor="personas"
+        data-descripcion="1.- lorem  des.">
+
+           <div class="item-contenido">
+               <img src="img/persona2.png" alt="imagenGrid">
+           </div>
+        </div>
+
+       
+
+    </section>
+    
+    <section>
+        <div class="contenedor-overlay" id="over">
+          <div class="imagen-overlay">
+               <img src="" alt="imagen">
+               <button class="cerrar-pop"><i id="cerrar" class='bx bx-x-circle'></i></button>
+               <p class="descripcion-overlay"></p>
+          </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+         <div class="redes-sociales">
+             <div class="iconos icono1">
+                <i class='bx bxl-twitter'></i>
+             </div>
+             <div class="iconos icono2">
+                <i class='bx bxl-facebook' ></i>
+             </div>
+             <div class="iconos icono3">
+                <i class='bx bxl-instagram' ></i>
+             </div>
+        </div>
+                <div class="parrafoEnlace">
+                    <p class="soy">Soy experto en esto <a href="#">Eduardo Francisco</a></p>
+                </div>
+    </footer>
+    </div>
+     
+</body>
+</html>

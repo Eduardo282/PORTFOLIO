@@ -1,0 +1,509 @@
+---
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+// Bring in Donas page CSS and assets via Vite so paths resolve correctly
+import "../../pages/donas/css/Donas.css";
+import Dona1 from "../../pages/donas/img/Dona1.png";
+import Dona2 from "../../pages/donas/img/Dona2.png";
+import Dona3 from "../../pages/donas/img/Dona3.png";
+import Dona4 from "../../pages/donas/img/Dona4.png";
+import Dona5 from "../../pages/donas/img/Dona5.png";
+import Dona6 from "../../pages/donas/img/Dona6.png";
+import DonaInfo from "../../pages/donas/img/DonaInfo.png";
+import DonaPrincipal from "../../pages/donas/img/DonaPrincipal.png";
+import VisaImg from "../../pages/donas/img/visa.png";
+import MasterImg from "../../pages/donas/img/master.png";
+import PaypalImg from "../../pages/donas/img/paypal.png";
+import SantanderImg from "../../pages/donas/img/santander.png";
+import donasScriptUrl from "../../pages/donas/js/import_functions_donas.js?url";
+
+// Generate paths for all projects. For the Donas project, expose both
+// camelCase and lowercase variants to avoid 404 due to casing.
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+
+  const paths = projects.flatMap((project) => {
+    const slug = project.slug; // e.g., "donas-para-todos"
+    const slugNormalized = slug.replace(/[-_\s]/g, "").toLowerCase();
+    const isDonas = slugNormalized === "donasparatodos";
+    if (isDonas) {
+      return [
+        { params: { id: slug }, props: { project } },
+        { params: { id: "donasParaTodos" }, props: { project } },
+        { params: { id: "donasparatodos" }, props: { project } },
+      ];
+    }
+    return [{ params: { id: slug }, props: { project } }];
+  });
+
+  return paths;
+}
+
+type Props = { project: CollectionEntry<"projects"> };
+const { project } = Astro.props as Props;
+const isDonas =
+  project.slug.replace(/[-_\s]/g, "").toLowerCase() === "donasparatodos";
+
+// Only render markdown content for non-Donas pages (future use)
+let Content: Awaited<ReturnType<typeof render>>["Content"] | null = null;
+if (!isDonas) {
+  const rendered = await render(project);
+  Content = rendered.Content;
+}
+---
+
+{
+  isDonas ?
+    <>
+      {/* Fonts */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin="anonymous"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,500&family=Exo+2:ital,wght@0,200;0,500;0,700;1,100;1,400;1,600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,500;1,100;1,900&display=swap"
+        rel="stylesheet"
+      />
+      {/* Page CSS is imported via the component frontmatter */}
+
+      {/* Body content from paginaDonas.html with asset paths adjusted to absolute /donas/... */}
+      <header class="header" id="header">
+        <nav class="contenedor navigation">
+          <a href="#paginaDonas.html" class="principal-logo">
+            <i class="fas fa-dot-circle" />
+            DONUTS
+          </a>
+          <nav class="menu-navigation">
+            <ul>
+              <li>
+                <a class="home" href="#Home">
+                  Home <div />
+                </a>
+              </li>
+              <li>
+                <a class="about" href="#About">
+                  About <div />
+                </a>
+              </li>
+              <li>
+                <a class="products" href="#Products">
+                  Products <div />
+                </a>
+              </li>
+              <i class="fa fa-eercast" aria-hidden="true" />
+              <li>
+                <a class="faqs" href="#FAQs">
+                  FAQs <div />
+                </a>
+              </li>
+              <li>
+                <a class="contact-us" href="#Contact-us">
+                  Contact us <div />
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="nav-buttons">
+            <div class="menu-hamburguer">
+              <i class="fas fa-bars" />
+            </div>
+            <div class="on-off">
+              <i class="fas fa-cloud-moon" />
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div class="menu-mobile">
+        <ul>
+          <li>
+            <a class="home" href="#Home">
+              Home <div />
+            </a>
+          </li>
+          <li>
+            <a class="about" href="#About">
+              About <div />
+            </a>
+          </li>
+          <li>
+            <a class="products" href="#Products">
+              Products <div />
+            </a>
+          </li>
+          <li>
+            <a class="faqs" href="#FAQs">
+              FAQs <div />
+            </a>
+          </li>
+          <li>
+            <a class="contact-us" href="#Contact-us">
+              Contact us <div />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <main class="main">
+        <section class="section frontPageSection">
+          <div class="frontPage contenedor" id="Home">
+            <div class="data-frontPage">
+              <h1>Las donas son lo mejor</h1>
+              <p>
+                Disfruta de maravillosas donas acompañadas de tu bebida
+                favorita, se parte de nuevas experiencias que tenemos para ti
+              </p>
+              <button class="button-explore">
+                <a href="#">
+                  Explorar <i class="fas fa-level-down-alt" />
+                </a>
+              </button>
+            </div>
+
+            <img src={DonaPrincipal.src} alt="Donas en plato" />
+
+            <div class="frontPage-social">
+              <span>Follow us</span>
+              <div class="frontPage-social-links">
+                <a href="#">
+                  <i class="fab fa-facebook" />
+                </a>
+                <a href="#">
+                  <i class="fab fa-instagram" />
+                </a>
+                <a href="#">
+                  <i class="fab fa-twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="about contenedor" id="About">
+          <div class="grid">
+            <img src={DonaInfo.src} alt="Donas" />
+            <div class="data">
+              <h2>Realmente te gustan las donas?</h2>
+              <p>
+                Puedes conocer nuestras donas y deleitarte con el sabor único y
+                especial que tenemos para ti, no lo dudes y ven a conocernos
+              </p>
+              <div class="details">
+                <p>
+                  <i class="fas fa-check-double" /> Calidad en nuestros products
+                </p>
+                <p>
+                  <i class="fas fa-check-double" /> Deliciosos y esponjosos para
+                  chuparse los dedos
+                </p>
+                <p>
+                  <i class="fas fa-check-double" /> Recomendado por nuestros
+                  miles de clientes
+                </p>
+                <p>
+                  <i class="fas fa-check-double" /> Aprobado por expertos
+                </p>
+              </div>
+              <a href="#">
+                Tienda <i class="fas fa-level-down-alt" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="recommendations contenedor">
+          <div class="background">
+            <h2>Que bebidas tomar de acuerdo a la dona?</h2>
+            <div class="recommendation-grid">
+              <div class="recommendation-card">
+                <div class="recommendation-number">
+                  <i class="fas fa-mug-hot" />
+                </div>
+                <h3>Bebida 1</h3>
+                <p>Esta bebida es la mejor opción para la de chocolate</p>
+              </div>
+
+              <div class="recommendation-card">
+                <div class="recommendation-number">
+                  <i class="fas fa-mug-hot" />
+                </div>
+                <h3>Bebida 2</h3>
+                <p>Esta bebida es la mejor opción para la de vainilla</p>
+              </div>
+
+              <div class="recommendation-card">
+                <div class="recommendation-number">
+                  <i class="fas fa-mug-hot" />
+                </div>
+                <h3>Bebida 3</h3>
+                <p>Esta bebida es la mejor opción para la de coco</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="products contenedor" id="Products">
+          <h2>Checa los tipos de donas</h2>
+          <p>
+            Tenemos una gran variedad para ti, atrevete a sumergirte en este
+            delicioso mundo y vive la experiencia
+          </p>
+          <div class="products-grid">
+            <div class="products-card">
+              <div class="img-product">
+                <img src={Dona2.src} alt="Dona de chocolate y chispas" />
+                <div class="products-circle" />
+              </div>
+              <h3>Dona especial</h3>
+              <span>$19.00</span>
+              <button>
+                <i class="fab fa-shopify" />
+              </button>
+            </div>
+            <div class="products-card">
+              <div class="img-product">
+                <img src={Dona1.src} alt="Dona de coco" />
+                <div class="products-circle" />
+              </div>
+              <h3>Dona de coco</h3>
+              <span>$8.00</span>
+              <button>
+                <i class="fab fa-shopify" />
+              </button>
+            </div>
+            <div class="products-card">
+              <div class="img-product">
+                <img src={Dona4.src} alt="Dona de chocolate" />
+                <div class="products-circle" />
+              </div>
+              <h3>Dona de chocolate</h3>
+              <span>$12.50</span>
+              <button>
+                <i class="fab fa-shopify" />
+              </button>
+            </div>
+            <div class="products-card">
+              <div class="img-product">
+                <img src={Dona3.src} alt="Dona de fresa" />
+                <div class="products-circle" />
+              </div>
+              <h3>Dona de fresa</h3>
+              <span>$16.00</span>
+              <button>
+                <i class="fab fa-shopify" />
+              </button>
+            </div>
+            <div class="products-card">
+              <div class="img-product">
+                <img src={Dona5.src} alt="Dona de chocolate y coco" />
+                <div class="products-circle" id="circle1" />
+              </div>
+              <h3>Dona de cocolate</h3>
+              <span>$10.00</span>
+              <button>
+                <i class="fab fa-shopify" />
+              </button>
+            </div>
+            <div class="products-card">
+              <div class="img-product">
+                <img src={Dona6.src} alt="Dona de azucar" />
+                <div class="products-circle" id="circle2" />
+              </div>
+              <h3>Dona de azúcar</h3>
+              <span>$15.00</span>
+              <button>
+                <i class="fab fa-shopify" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="questions section" id="FAQs">
+          <h2 class="contenedor">
+            Algunas preguntas comunes que la gente hace
+          </h2>
+          <div class="questions-grid contenedor">
+            <div class="questions-group">
+              <div class="questions-item">
+                <i class="fas fa-plus cross" />
+                <h3>Que tan esponjosos son?</h3>
+                <div class="questions-item-div">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Consequatur suscipit nam eum modi soluta? Ipsam, quam nulla
+                  cupiditate dignissimos maxime alias voluptatem commodi dicta
+                  impedit architecto inventore voluptates incidunt ducimus?
+                </div>
+              </div>
+              <div class="questions-item">
+                <i class="fas fa-plus cross" />
+                <h3>Tienen muchas calorias?</h3>
+                <div class="questions-item-div">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Consequatur suscipit nam eum modi soluta? Ipsam, quam nulla
+                  cupiditate dignissimos maxime alias voluptatem commodi dicta
+                  impedit architecto inventore voluptates incidunt ducimus?
+                </div>
+              </div>
+              <div class="questions-item">
+                <i class="fas fa-plus cross" />
+                <h3>Porque las recomiendan?</h3>
+                <div class="questions-item-div">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Consequatur suscipit nam eum modi soluta? Ipsam, quam nulla
+                  cupiditate dignissimos maxime alias voluptatem commodi dicta
+                  impedit architecto inventore voluptates incidunt ducimus?
+                </div>
+              </div>
+            </div>
+            <div class="questions-group">
+              <div class="questions-item">
+                <i class="fas fa-plus cross" />
+                <h3>Hay pedidos especiales?</h3>
+                <div class="questions-item-div">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Consequatur suscipit nam eum modi soluta? Ipsam, quam nulla
+                  cupiditate dignissimos maxime alias voluptatem commodi dicta
+                  impedit architecto inventore voluptates incidunt ducimus?
+                </div>
+              </div>
+              <div class="questions-item">
+                <i class="fas fa-plus cross" />
+                <h3>Que tan saludables son?</h3>
+                <div class="questions-item-div">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Consequatur suscipit nam eum modi soluta? Ipsam, quam nulla
+                  cupiditate dignissimos maxime alias voluptatem commodi dicta
+                  impedit architecto inventore voluptates incidunt ducimus?
+                </div>
+              </div>
+              <div class="questions-item">
+                <i class="fas fa-plus cross" />
+                <h3>Hay servicio a domicilio?</h3>
+                <div class="questions-item-div">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Consequatur suscipit nam eum modi soluta? Ipsam, quam nulla
+                  cupiditate dignissimos maxime alias voluptatem commodi dicta
+                  impedit architecto inventore voluptates incidunt ducimus?
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact contenedor" id="Contact-us">
+          <div class="contact-grid">
+            <div class="box-contact">
+              <h2>Para mas información tenemos para ti estos medios</h2>
+              <div class="contact-data">
+                <div class="contact-information">
+                  <h3>Llamanos para soporte al instante</h3>
+                  <span>
+                    <i class="fas fa-mobile-alt" /> +555 888 222
+                  </span>
+                </div>
+                <div class="contact-information">
+                  <h3>Escribenos al email</h3>
+                  <span>
+                    <i class="far fa-envelope" /> lalito9270@gmail.com
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <form action=" " class="form">
+              <div class="contact-inputs">
+                <div class="contact-content">
+                  <label for="email">
+                    Email
+                    <input type="email" name="email" />
+                  </label>
+                </div>
+                <div class="contact-content">
+                  <label for="text">
+                    Sujeto
+                    <input type="text" name="text" />
+                  </label>
+                </div>
+                <div class="contact-content area">
+                  <label for="textarea">
+                    Mensaje
+                    <textarea name="textarea" rows="4" />
+                  </label>
+                </div>
+              </div>
+              <button>
+                Enviar mensaje <i class="fas fa-level-up-alt" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </main>
+
+      <div class="section footer">
+        <div class="footer-grid contenedor">
+          <div class="content-footer one">
+            <a href="#">
+              <i class="fas fa-dot-circle" /> DONUTS
+            </a>
+            <h3>Suscribete para estar actualizado</h3>
+            <div class="footer-subscribe">
+              <input type="email" placeholder="Escribe email" />
+              <button>
+                Suscribete <i class="fas fa-level-up-alt" />
+              </button>
+            </div>
+          </div>
+          <div class="content-footer two">
+            <h3>Tu dirección</h3>
+            <ul>
+              <li>548 - Mexico</li>
+              <li>La libertad - 122</li>
+              <li>789 - 255 - 563</li>
+            </ul>
+          </div>
+          <div class="content-footer three">
+            <h3>Contactanos</h3>
+            <div class="data-footer ul">
+              <ul>
+                <li>+958 621 028</li>
+                <li>
+                  <div class="footer-social">
+                    <i class="fab fa-facebook" />
+                    <i class="fab fa-instagram" />
+                    <i class="fab fa-twitter" />
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-footer four">
+            <h3>Aceptamos tarjetas de crédito</h3>
+            <div class="footer-cards">
+              <img src={VisaImg.src} alt="cardVisa" />
+              <img src={MasterImg.src} alt="cardMaster" />
+              <img src={PaypalImg.src} alt="cardPaypal" />
+              <img src={SantanderImg.src} alt="cardSantander" />
+            </div>
+          </div>
+        </div>
+        <p> &#169 Eduardo Francisco. Todos los derechos reservados</p>
+      </div>
+
+      <div class="btn-up">
+        <a href="#" class="up">
+          <i class="fas fa-arrow-up" />
+        </a>
+      </div>
+
+      {/* External scripts */}
+      <script
+        src="https://kit.fontawesome.com/86bebd3865.js"
+        crossorigin="anonymous"
+      />
+      <script type="module" src={donasScriptUrl} />
+    </>
+    // Fallback: if you visit another project route, render its markdown (if any)
+  : Content && <Content />
+}
