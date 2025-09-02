@@ -1,6 +1,10 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {},
-  "include": ["src", "astro.config.mjs", ".astro/types.d.ts"],
+  "include": [
+    "src",
+    "astro.config.mjs",
+    ".astro/types.d.ts"
+  ],
   "exclude": []
 }
